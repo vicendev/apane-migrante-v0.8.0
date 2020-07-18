@@ -1,0 +1,48 @@
+
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+  <button class="navbar-toggler order-first" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" >
+          <i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+        <a class="nav-link" [routerLink]="['/about']">
+          <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="getTranslate('es-ES')" data-toggle="collapse" data-target=".navbar-collapse.show">Español</a>
+          <a class="dropdown-item" (click)="getTranslate('kre-KRE')" data-toggle="collapse" data-target=".navbar-collapse.show">Kreyòl</a>
+        </div>
+      </li>
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated">
+        <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active" >
+          &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!userIsAuthenticated">
+        <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" >
+          &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated">
+        <a class="nav-link link-pointer" (click)="onLogout()" >
+          <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;
+        </a>
+      </li>
+    </ul>
+  </div>
+  <a class="navbar-brand" [routerLink]="['/']">
+    <img class="img-responsive logo-img" src="assets/img/png/logo-nav.png" alt="">
+  </a>
+</nav>

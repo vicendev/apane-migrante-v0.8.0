@@ -1,0 +1,92 @@
+#main{
+    height: 100vh;
+}
+
+.menu-padding {
+    padding-bottom: 5rem;
+}
+
+.img-border {
+    border: 3px solid #F39634;
+}
+
+
+
+
+/* SIDE MENU STYLES */
+
+@media screen and (min-width : 1000px) {
+    .menucus {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width : 1000px) {
+    .menucus {
+        display: none !important;
+    }
+}
+
+::ng-deep .menucus .ui-menubar {
+    text-align: center;
+}
+
+::ng-deep .menucus .ui-menu-list {
+    display: inline-block;
+}
+
+::ng-deep .ui-menu .ui-menuitem .ui-menuitem-link {
+    text-align: center;
+    padding-right: 25px;
+    font-family: Betm;
+    font-size: 20px;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-widget:hover {
+    color: #f7f7f7;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-menuitem-link .ui-menuitem-text {
+    color: #F4EF9A ;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-menuitem-link .ui-menuitem-text:hover {
+    color: #f7f7f7 ;
+}
+::ng-deep .menucus ul li:nth-child(1) {
+    background: rgba(73, 19, 17, 0.1);
+}
+::ng-deep .menucus ul li:nth-child(2) {
+    background: rgba(73, 19, 17);
+}
+::ng-deep .menucus ul li:nth-child(3) {
+    background: rgba(73, 19, 17, 0.1);
+}
+::ng-deep .menucus ul li:nth-child(4) {
+    background: rgba(73, 19, 17);
+}
+::ng-deep .menucus ul li:nth-child(5) {
+    background: rgba(73, 19, 17, 0.1);
+}
+::ng-deep .menucus ul li:nth-child(6) {
+    background: rgba(73, 19, 17);
+}
+::ng-deep .menucus ul li:nth-child(7) {
+    background: rgba(73, 19, 17, 0.1);
+}
+::ng-deep .menucus ul li:nth-child(8) {
+    background: rgba(73, 19, 17);
+}
+::ng-deep .ui-menu .ui-menuitem .ui-menuitem-link:hover{
+    background-color: rgba(73, 19, 17);
+}
+::ng-deep .ui-menu,.ui-menu .ui-menu-child{
+    border: 0px;
+    background:rgba(44, 33, 33, 0.363) 0 0 repeat-x !important;
+}
+::ng-deep .ui-menu .ui-menuitem .ui-state-active{
+    background-color: rgba(73, 19, 17, 0.1);
+}
+::ng-deep .ui-menu .ui-menuitem.ui-menuitem-active>.ui-menuitem-link,
+.ui-menu .ui-menuitem .ui-menuitem-link:hover{
+    background-color:#186ba0;
+}
+
+

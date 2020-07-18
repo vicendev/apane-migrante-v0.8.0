@@ -1,0 +1,43 @@
+<div class="row animated fadeIn" id="profile-activity">
+  <div class="col-12">
+
+    <div class="row pt-3 pl-1">
+      <div class="col-12">
+        <h1 class="h-blanca-sorry-40">{{'label.perfil.menu.actividad' | translate}}</h1>
+      </div>
+    </div>
+
+    <div class="row ml-1 mr-1">
+      <div class="col-12 backCol-box-blue-transparente pt-2">
+        <p class="p-ama-claro-betm-25">
+          {{'label.perfil.contenido.actividad.parrafo.uno' | translate}}
+        </p>
+        <p class="p-ama-claro-betm-25 mt-5 pt-5">
+          {{'label.perfil.contenido.actividad.parrafo.dos' | translate}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-5 mr-5 ml-5 text-center">
+      <div class="col-4">
+        <button class="btn btn-alto-naranjo">
+          <img class="tam-icono" src="assets/img/png/tramite-consultado.png" alt="">
+          <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.consultados' | translate }}</p>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_CONSULTADO.length}}</h1></button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-alto-ama-claro">
+          <img class="tam-icono" src="assets/img/png/tramite-proceso.png" alt="">
+          <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.curso' | translate }}</p>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_PROCESO.length}}</h1></button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-alto-naranjo">
+          <img class="tam-icono" src="assets/img/png/tramite-finalizado.png" alt="">
+          <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.finalizados' | translate }}</p>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_FINALIZADO.length}}</h1></button>
+      </div>
+    </div>
+
+  </div>
+</div>

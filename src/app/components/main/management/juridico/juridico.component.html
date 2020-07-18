@@ -1,0 +1,23 @@
+<div class="row animated fadeIn">
+  <div class="col-12">
+
+    <div class="row" *ngIf="keyContenido === 'JURIDICO.GENERAL'">
+      <div class="col-12">
+        <app-juridico-general></app-juridico-general>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="keyContenido === 'JURIDICO.IDENTIDAD.GENERAL'">
+      <div class="col-12">
+        <app-identidad-general></app-identidad-general>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="keyContenido === 'JURIDICO.IDENTIDAD.CARNET'">
+      <div class="col-12">
+        <app-identidad-carnet></app-identidad-carnet>
+      </div>
+    </div>
+    
+  </div>
+</div>

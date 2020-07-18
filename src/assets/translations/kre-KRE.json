@@ -1,0 +1,159 @@
+{
+    "label.titulo.bienvenida": "Akeyi",
+    "label.parrafo.inicio":"Definisyon lavi moun. Lavi, nan pi gwo sans li yo, se yon konsèp ki refere a egzistans. Nosyon an anjeneral refere a aktivite a te pote soti nan yon ke yo te òganik oswa, plis jisteman, nan kapasite li nan yo dwe fèt, devlope, repwodui epi mouri. Imèn, nan lòt men, se sa ki apwopriye pou moun tankou yon espès.",
+    "label.button.informate":"¡Chèche konnen sou li!",
+    "label.boton.juridico":"jidisyè",
+    "label.boton.legal":"Legal",
+    "label.boton.social":"Sosyal",
+    "label.boton.cultural":"Kiltirèl",
+	"label.boton.iniciar.tramite": "Kòmanse Processing",
+	
+	"label.login.titulo": "Nan lòd pou ou fè pati nan kominote sa a, ou bezwen antre nan yon kont pèsonèl.",
+	"label.login.box.parrafo": "Aksè nan rezo a Migrante Apañe pa:",
+
+	"label.home.no.autenticado.titulo.saludo": "Sak Pase!",
+	"label.home.no.autenticado.titulo.parrafo": "Apañe migrante se yon espas vityèl kote ou ka jwenn enfòmasyon pratik sou Chili pou egzekite pwosedi tankou:",
+	"label.home.no.autenticado.titulo.lista.uno": "Enskri nan Cesfam ki pi pre w la.",
+	"label.home.no.autenticado.titulo.lista.dos": "Regilize sitiyasyon legal ou.",
+	"label.home.no.autenticado.titulo.lista.tres": "Enskri nan Rejis Sosyal nan Kay.",
+	
+	"label.home.autenticado.titulo.saludo":"Sak Pase",
+	"label.home.autenticado.parrafo":"Ou deja fè pati nan rezo Apañe Migrante a, chwazi yon zòn ki enterese w pou enfòme w epi konekte ak lòt moun.",
+
+    "label.titulo.juridico":"Zòn Jidisyè",
+    "label.descripcion.juridico": "Pwosedi jidisyè yo gen yon biwokrasi estipid nan peyi sa a, sepandan, nou pral ede ou atake sa a ki kalite pratik san yo pa pwoblèm.",
+
+    "label.titulo.legal":"Zòn Legal",
+    "label.descripcion.legal":"Pwosedi legal yo gen yon biwokrasi estipid nan peyi sa a, sepandan, nou pral ede ou atake sa a ki kalite pratik san yo pa pwoblèm.",
+
+    "label.titulo.social":"Zòn Sosyal",
+    "label.descripcion.social":"Dimansyon sosyal la nan Chili, se byen vaste, gen anpil detay ki gen rapò ak kominikasyon ant kamarad klas, ak ki jan nou ka chwazi benefis yo diferan yo te yon pati nan rejency a nan peyi sa a.",
+
+    "label.titulo.cultural":"Zòn Kiltirèl",
+    "label.descripcion.cultural":"Chili abond nan kilti, se konsa isit la nou pral prezante evènman nan ki ou ka patisipe, petèt pa sèlman ak kilti tipik nan peyi a, apre tout, kilti a adrese pa ki jan rezidan li yo distribye tan ak aksyon nan aktivite yo.",
+
+    "label.menu.juridico.general": "Jeneral",
+    "label.menu.juridico.identidad": "Idantite",
+    "label.menu.juridico.trabajo": "Job",
+    "label.menu.juridico.prevision": "Pwevwa",
+
+    "label.submenu.juridico.identidad.general": "Jeneral",
+    "label.submenu.juridico.identidad.regulacion": "Règleman",
+    "label.submenu.juridico.identidad.carnet": "Lisans",
+
+    "label.contenido.juridico.general.titulo.uno": "Nou pral akonpanye",
+	"label.contenido.juridico.general.titulo.dos": "ou nan pwosesis la biwokratik",
+	"label.contenido.juridico.general.titulo.tres": "nesesè pou ou.",
+	"label.contenido.juridico.general.parrafo": "Chwazi yon sijè ki enterese w epi chèche konnen sou li. Nan zòn legal la w ap jwenn enfòmasyon sou:",
+
+	"label.contenido.carnet.general.titulo": "carnét oswa kat idantite",
+	"label.contenido.carnet.general.parrafo.uno": "Kat idantite a, ke yo rele tou yon Carnét, se yon dokiman idantifikasyon ki dwe nan posesyon nenpòt moun ki gen plis pase 18 ane k ap viv nan peyi a. Dokiman sa a gen yon Nasyonal wòl inik (RUN), se nimewo ki asiyen nan chak moun (nasyonal oswa etranje) ki anrejistre nan Rejis Sivil la nan Chili.",
+	"label.contenido.carnet.general.parrafo.dos": "Livrezon kat idantite a depann de",
+	"label.contenido.carnet.general.parrafo.dos.link": "Rejis Sivil ak Idantifikasyon nan Chili.",
+
+	
+    "label.contenido.titulo.juridico.identidad.carnet": "Ki jan yo travay sou kat mwen an kòm yon etranje?",
+	"label.contenido.parrafo.uno.juridico.identidad.carnet" :"Nou te fè pwosesis sa a pi fasil pou ou, se pwosesis sa a divize an de premye etap:",
+	"label.contenido.parrafo.dos.juridico.identidad.carnet" :"Si ou se yon etranje ki gen plis pase 18 ane k ap viv nan peyi a ak/oswa detantè nan nenpòt ki kalite viza oswa rete pèmanan.",
+	"label.contenido.parrafo.tres.juridico.identidad.carnet" : "Gouvènman an nan Chili mande ou jwenn kat ou nan lespas 30 jou soti nan dat la nan livrezon nan sètifika final la nan pèmanans oswa depi se viza a nan paspò ou so.",
+	"label.contenido.lista.item.uno.juridico.identidad.carnet": "Dokimantasyon",
+	"label.contenido.lista.item.dos.juridico.identidad.carnet": "Egzekisyon",
+	
+	"label.tramite.core.carnet.titulo.documentacion": "DOKIMANTASYON",
+	"label.tramite.core.carnet.titulo.ejecucion": "EGZEKISYON",
+	
+	"label.tramite.core.carnet.fase.uno.titulo": "1. Chwazi ka ou a",
+	"label.tramite.core.carnet.fase.uno.parrafo": "Tou depan de opsyon ou chwazi a, nan dezyèm etap la ou pral wè dokiman ki nesesè yo",
+	"label.tramite.core.carnet.fase.uno.radio.uno": "a) Premye aplikasyon pou ID",
+	"label.tramite.core.carnet.fase.uno.radio.dos": "b) Viza Tanporè sijè a kontra oswa elèv yo",
+	"label.tramite.core.carnet.fase.uno.radio.tres": "c) Pèmanans definitif",
+	"label.tramite.core.carnet.fase.uno.radio.cuatro": "d) Depandan Visa",
+	
+	"label.tramite.core.carnet.fase.dos.titulo": "2. Kondisyon",
+	"label.tramite.core.carnet.fase.dos.parrafo": "Make dokiman wap jwenn, epi montre w yon rezime sou pwogrè ou nan pwosesis biwokratik sa a",
+	"label.tramite.core.carnet.fase.dos.opt.uno.check.uno": "Prezante paspò aktyèl la, oswa tit rezidans.",
+	"label.tramite.core.carnet.fase.dos.opt.uno.check.dos": "Senp fotokopi fèy pèsonalizasyon dokiman anvan an, kote foto a, done pèsonèl ak siyati yo ap parèt.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.uno": "Fotokopi paj pèsonalizasyon paspò a kote foto, non konplè, dat nesans ak sèks, oswa tit rezidans lan parèt, kote yo montre klèman dat la antre.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.dos": "Fotokopi viza ou.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.tres": "Original ak fotokopi sètifika Enskripsyon Visa ki emèt pa lapolis la Investigative (PDI).",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.cuatro": "Si li se yon viza konsila, sijè a kontra, tanporè oswa elèv yo, ou dwe prezante dokiman yo endike pou yon afilyasyon premye ak yon kopi koupon pou achte nan antre nan peyi a, kèlkeswa si li se yon afilyasyon premye oswa yon renouvèlman.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.uno": "Original ak fotokopi sètifika rezidans pèmanan ki soti nan Ministè Enteryè a.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.dos": "Orijinal ak fotokopi Sètifika Enskripsyon nan Pèmanans Definitif ki ofri pa Lapolis la Investigative (PDI) oswa fotokopi Sètifika Validite nan Pèmanans Definitif yo akòde pa PDI a, si dat la nan sibvansyon pèmanans ki pi gran pase yon ane.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.tres": "Gwoup la fanmi ki antre nan ak detantè a viza gen menm kalite viza tankou moun sa a, men depandan. Ou dwe tache nan aplikasyon an yon fotokopi senp nan fèy papye a pèsonalizasyon nan paspò a, viza, sonèt pou antre, (si sa aplikab) ak nan kat enskripsyon PDI. Si ou gen yon viza depandan (gwoup fanmi), ou dwe tou mete yon fotokopi nan dokiman detantè viza a.",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.parrafo": "Gwoup la fanmi ki antre nan ak detantè a viza gen menm kalite viza tankou sa a, men depandan. Sa ki annapre yo dwe tache:",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.check.uno": "Senp fotokopi nan fèy papye done paspò, viza, sonèt pou antre (si sa aplikab), ak kat enskripsyon an nan Lapolis la Investigative (PDI).",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.check.dos": "fotokopi dokiman detantè viza a (paspò, viza ak enskripsyon PDI).",
+	"label.tramite.core.carnet.fase.dos.modal.titulo" :"Ou deja genyen dokiman sa a?",
+	"label.tramite.core.carnet.fase.dos.modal.parrafo" :"Si ou peze repons lan se wi, ou pa yo pral kapab dezaktive opsyon sa a",
+	"label.tramite.core.carnet.fase.dos.modal.boton.confirmar": "Wi, mwen te resevwa li",
+	"label.tramite.core.carnet.fase.dos.modal.boton.rechazar": "Non, mwen toujou pa genyen li",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.titulo": "Mwens ak mwens ki manke!",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.parrafo": "Ou make dokiman an jan ou jwenn li",
+	"label.tramite.core.carnet.fase.dos.modal.rechazar.titulo": "Repoze lè ou gen dokiman an!",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.parrafo": "Li esansyèl pou gen tout bagay ou bezwen",
+	
+	"label.tramite.core.carnet.fase.tres.titulo": "3. Atansyon",
+	"label.tramite.core.carnet.fase.tres.parrafo": "Avèk dokiman ki prepare yo, chwazi kijan pou mande yon tan sou sit oswa sou entènèt. Apre sa, nou prezante diferan fason:",
+	"label.tramite.core.carnet.fase.tres.panel.uno.header": "Kouman pou mande pou èdtan nan registrocivil.cl?",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.uno": "Ale nan paj la",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.dos": "Chwazi Pwosedi yo sou entènèt, Lè sa a, tan Rezèv pita ak ID la ak opsyon paspò.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.tres": "Chwazi premye demann etranje a oswa renouvèlman etranje depann de ka ou.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro": "Chwazi rejyon an, biwo ak èdtan ki disponib yo",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro.destacado": "Platfòm nan ap mande ou pou antre nan nimewo RUN oswa nimewo viza ou, non konplè, imèl ak telefòn.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cinco": "Antre kòd verifikasyon ki pral parèt sou ekran an.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.seis": "Ak pare! Ou gen sèlman pou enprime nimewo rezèvasyon w lan.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.header": "Kijan pou rezève édtan via Call Center?",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.uno": "Rele nimewo a 600 370 2000.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.dos": "Chwazi opsyon 2 pou swen.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.tres": "Yo pral mande pou nimewo VISA oswa RUN ou (si ou deja gen kat ou ID)",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.cuatro": "Yo pral enfòme w de édtan ki disponib.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.cinco": "Yo pral ba ou nimewo rezèvasyon ou.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.header": "Ki jan yo mande édtan nan biwo yo menm?",
+	"label.tramite.core.carnet.fase.tres.panel.tres.parrafo.uno": "Lè yo rive nan biwo a:",
+	"label.tramite.core.carnet.fase.tres.panel.tres.parrafo.dos": "Si ou gen dout sou kote distribitè a ak/oswa modil yo, ou ka toujou mande gad yo. Yo jeneralman prepare pou gide moun ki andedan biwo yo.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.uno" :"Ale nan totèm vire an epi antre nan nimewo rezèvasyon an",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.uno": "si ou te fè pwosedi a anvan yo. Ou dwe antre nan nimewo rezèvasyon an soti nan 15 minit anvan ak jiska 15 minit apre tan an rezève. Apre tan sa a, sistèm lan pral otomatikman anile rezèvasyon an.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.dos": "Si ou pa t 'fè sou entènèt la rezèvasyon",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.dos": ", Nan totèm nan menm ou ka rezève èdtan nan atansyon depann sou kota yo ki nan sistèm nan",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.dos.destacado": "Retire tikè a atansyon epi tann pou vire a.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.dos": "Vire a pral avèti nan yon ekran.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.tres": "Nan modil la atansyon, delivre tikè a epi fè demann ou an.",
+	
+	"label.tramite.core.carnet.fase.cuatro.titulo": "4. Valè",
+	"label.tramite.core.carnet.fase.cuatro.parrafo": "Dokiman sa a pwi a $ 4,270 pesos. Se yon bon lide yo anile ak lajan kach.",
+	
+	"label.tramite.core.carnet.fase.cinco.titulo": "5. Nan biwo a",
+	"label.tramite.core.carnet.fase.cinco.parrado": "Lè yo rive nan biwo Rejis Sivil la, swiv etap ki anba yo pou egzekite demann ou an.",
+	"label.tramite.core.carnet.fase.cinco.lista.uno": "Ale nan totèm vire an epi antre nimewo rezèvasyon an.",
+	"label.tramite.core.carnet.fase.cinco.lista.dos": "Retire tikè a atansyon epi tann pou vire a.",
+	"label.tramite.core.carnet.fase.cinco.lista.tres": "Lè se vire ou, ale nan modil sèvis la epi mande kat ID ou, ak dokiman yo mande yo.",
+	"label.tramite.core.carnet.fase.cinco.lista.cuatro": "Nan fen pwosedi a, revize done ou anrejistre nan aplikasyon an ak nan resi a.",
+	"label.tramite.core.carnet.fase.cinco.lista.cinco": "Ale nan biwo a ou te mande yo retire dokiman an ak resi ki koresponn lan.",
+	"label.tramite.core.carnet.fase.cinco.lista.seis.uno": "Sou sit entènèt la",
+	"label.tramite.core.carnet.fase.cinco.lista.seis.dos": "ou ka tcheke estati dokiman w lan.",
+
+    "label.perfil.menu.actividad": "Egzèsis",
+    "label.perfil.menu.descargas": "Downloads",
+    "label.perfil.menu.resenas": "Revi",
+    "label.perfil.menu.historial": "Ekri",
+
+    "label.perfil.contenido.actividad.parrafo.uno": "Nan seksyon sa a ou pral wè yon rezime pwosedi, aktivite oswa evènman ou te siyen.",
+    "label.perfil.contenido.actividad.parrafo.dos": "Ou pral kapab wè konte a nan pwosedi konsilte, nan pwogrè ak fini.",
+	"label.perfil.contenido.actividad.boton.consultados": "Pwosedi pou konsilte",
+    "label.perfil.contenido.actividad.boton.curso": "Pwosedi kontinyèl yo",
+    "label.perfil.contenido.actividad.boton.finalizados": "Pwosedi yo fini",
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	"label.error.404":"URL sèvè sa a pat jwenn.",
+	"label.no.disponible.titulo": "Espas anba konstriksyon.",
+	"label.no.disponible": "Nou ap travay sou nouvo seksyon sa a pou ba ou yon pi bon eksperyans."
+
+
+}

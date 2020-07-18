@@ -1,0 +1,12 @@
+#footer {
+    background-color: rgb(166, 62, 23);
+    font-family: Betm;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+.icon-circle {
+    padding: 0.1em 0.4em;
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+}

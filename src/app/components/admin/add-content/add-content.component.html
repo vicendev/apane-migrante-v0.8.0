@@ -1,0 +1,115 @@
+<div class="row mt-5">
+  <div class="col-12">
+
+    <div class="row mt-5">
+      <div class="col-12">
+        <h1>Agregar contenido Cabecera Menú</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+
+        <form #form="ngForm" (ngSubmit)="addCabeceraMenu(form)">
+
+          <div class="row form-group">
+            <div class="col-12">
+              <h6>Escoge una imagen</h6>
+              <p-fileUpload mode="advanced" customUpload="true" 
+              accept=".jpg,.png,.jpeg"
+              (uploadHandler)="onUploadImgHandler($event)"
+              (onRemove)="removeItem()" (onClear)="removeItem()"
+              chooseLabel="Escoger"
+              uploadLabel="Cargar"
+              cancelLabel="Cancelar"></p-fileUpload>
+            </div>
+          </div>
+
+          <div class="row form-group" *ngIf="uploadImg">
+            <div class="col-12">
+              <h6>Escoge un icono .png</h6>
+              <p-fileUpload mode="advanced" customUpload="true" 
+              accept=".png"
+              (uploadHandler)="onUploadIconHandler($event)"
+              (onRemove)="removeItem()" (onClear)="removeItem()"
+              chooseLabel="Escoger"
+              uploadLabel="Cargar"
+              cancelLabel="Cancelar"></p-fileUpload>
+            </div>
+          </div>
+
+          <div class="row form-group" *ngIf="uploadImg && uploadIcon">
+            <div class="col-12">
+
+              <label for="menuID">Menu ID</label>
+              <input type="text"
+              class="form-control"
+              name="menuID"
+              id="menuID"
+              placeholder="Introduce el ID de Menú..."
+              minlength="24"
+              maxlength="24"
+              required
+              [(ngModel)]="menuID"
+              [ngClass]="{
+                'is-valid': menuID.dirty && !menuID.errors,
+                'is-invalid': menuID.dirty && menuID.errors
+              }"
+              >
+
+              <div class="valid-feedback">
+                <span>¡Correcto!</span>
+              </div>
+
+              <div class="invalid-feedback">
+                <span *ngIf="menuID.errors?.required">Valor requerido</span>
+                <span *ngIf="menuID.errors?.minlength">Se necesitan minimo {{menuID.errors?.minlength.requiredLength}}
+                  caracteres y llevas {{menuID.errors?.minlength.actualLength}</span>
+                <span *ngIf="menuID.errors?.maxlength">Se necesitan maximo {{menuID.errors?.maxlength.requiredLength}}
+                  caracteres y llevas {{menuID.errors?.maxlength.actualLength}</span>
+              </div>
+
+            </div>
+            
+            <div class="col-12">
+
+              <label for="titulo">Titulo</label>
+              <input type="text"
+              class="form-control"
+              name="titulo"
+              id="titulo"
+              placeholder="Introduce el Titulo ej: label.juridico.titulo ..."
+              minlength="3"
+              required
+              [(ngModel)]="titulo"
+              [ngClass]="{
+                'is-valid': titulo.dirty && !titulo.errors,
+                'is-invalid': titulo.dirty && titulo.errors
+              }"
+              >
+
+              <div class="valid-feedback">
+                <span>¡Correcto!</span>
+              </div>
+
+              <div class="invalid-feedback">
+                <span *ngIf="titulo.errors?.required">Valor requerido</span>
+                <span *ngIf="titulo.errors?.minlength">Se necesitan minimo {{titulo.errors?.minlength.requiredLength}}
+                  caracteres y llevas {{titulo.errors?.minlength.actualLength}</span>
+              </div>
+
+            </div>
+            
+            <div class="col-12 mb-2 mt-2">
+              <button [disabled]="form.invalid" type="submit" class="btn btn-block btn-primary">Aceptar</button>
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>

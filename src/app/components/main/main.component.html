@@ -1,0 +1,99 @@
+<div class="row mt-5 animated fadeIn fast" id="main">
+  <div class="col-12">
+
+    <div class="row mt-2" *ngIf="tramite.key === 'JURIDICO'">
+      <div class="col-3 backCol-transparente">
+        
+        <div class="row text-center">
+          <div class="col-12">
+            <img class="img-fluid img-border" [src]="cabeceraMenu.imgPath" alt="">
+            <h3 class="h-ama-claro-sorry-45-borde"><span><img class="img-fluid" style="width: 40px; height: auto;" [src]="cabeceraMenu.iconPath" alt="">&nbsp;</span>{{cabeceraMenu.titulo}}</h3>
+          </div>
+        </div>
+
+        <div class="row menu-padding mt-2 pl-5 ">
+          <div class="col-12">
+            <p-menu styleClass="menucus" [model]="items" ></p-menu>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-9 mt-2">
+        <app-juridico #dataJuridico></app-juridico>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="tramite.key === 'LEGAL'">
+      <div class="col-12">
+        <app-not-available></app-not-available>
+      </div>
+      <!-- <div class="col-3">
+        
+        <div class="row">
+          <div class="col-12">
+            IMAGEN
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            MENU
+          </div>
+        </div>
+
+      </div>
+      <div class="col-9">
+        <app-legal></app-legal>
+      </div> -->
+    </div>
+
+    <div class="row" *ngIf="tramite.key === 'SOCIAL'">
+      <div class="col-12">
+        <app-not-available></app-not-available>
+      </div>
+      <!-- <div class="col-3">
+        
+        <div class="row">
+          <div class="col-12">
+            IMAGEN
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            MENU
+          </div>
+        </div>
+
+      </div>
+      <div class="col-9">
+        <app-social></app-social>
+      </div> -->
+    </div>
+
+    <div class="row" *ngIf="tramite.key === 'CULTURAL'">
+      <div class="col-12">
+        <app-not-available></app-not-available>
+      </div>
+      <!-- <div class="col-3">
+        
+        <div class="row">
+          <div class="col-12">
+            IMAGEN
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            MENU
+          </div>
+        </div>
+
+      </div>
+      <div class="col-9">
+        <app-cultural></app-cultural>
+      </div> -->
+    </div>
+
+  </div>
+</div>

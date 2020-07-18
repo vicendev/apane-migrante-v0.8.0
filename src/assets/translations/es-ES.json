@@ -1,0 +1,152 @@
+{
+	
+    "label.titulo.bienvenida": "Benvenido",
+    "label.parrafo.inicio":"Definición de vida humana. Vida, en su sentido más amplio, es un concepto que alude a la existencia. La noción suele referirse a la actividad que realiza un ser orgánico o, más precisamente, a su capacidad de nacer, desarrollarse, reproducirse y fallecer. Humano, por su parte, es aquello propio del hombre como especie.",
+    "label.button.informate":"¡Informate al respecto!",
+    "label.boton.juridico":"Jurídico",
+    "label.boton.legal":"Legal",
+    "label.boton.social":"Social",
+    "label.boton.cultural":"Cultural",
+	"label.boton.iniciar.tramite": "Iniciar Trámite",
+	
+	"label.login.titulo": "Para que puedas ser parte de esta comunidad, es necesario que ingreses una cuenta personal.",
+	"label.login.box.parrafo": "Accede a la red de Apañe Migrante mediante:",
+	
+	"label.home.no.autenticado.titulo.saludo": "¡Qué tal!",
+	"label.home.no.autenticado.titulo.parrafo": "Apañe migrante es un espacio virtual donde podrás encontrar información práctica sobre Chile para realizar trámites como:",
+	"label.home.no.autenticado.titulo.lista.uno": "Inscribirte en tu Cesfam más cercano.",
+	"label.home.no.autenticado.titulo.lista.dos": "Regularizar tu situación Jurídica.",
+	"label.home.no.autenticado.titulo.lista.tres": "Inscribirte en el Registro Social de Hogares.",
+	
+	"label.home.autenticado.titulo.saludo":"Hola",
+	"label.home.autenticado.parrafo":"Ya formas parte de la red Apañe Migrante, selecciona un área de tu interés para informarte y conectar con otros.",
+
+    "label.titulo.juridico":"Área Jurídica",
+    "label.titulo.legal":"Área Legal",
+    "label.titulo.social":"Área Social",
+    "label.titulo.cultural":"Área Cultural",
+
+    "label.menu.juridico.general": "General",
+    "label.menu.juridico.identidad": "Identidad",
+    "label.menu.juridico.trabajo": "Trabajo",
+    "label.menu.juridico.prevision": "Previsión",
+
+    "label.submenu.juridico.identidad.general": "General",
+    "label.submenu.juridico.identidad.regulacion": "Regulación",
+    "label.submenu.juridico.identidad.carnet": "Carnet",
+
+    "label.contenido.juridico.general.titulo.uno": "te acompañaremos",
+	"label.contenido.juridico.general.titulo.dos": "en el proceso burocrático",
+	"label.contenido.juridico.general.titulo.tres": "necesario para ti.",
+	"label.contenido.juridico.general.parrafo": "Selecciona algún tema de tu interés e infórmate al respecto. En el área jurídica encontrarás información acerca de:",
+
+	"label.contenido.carnet.general.titulo": "carné o cédula de identidad",
+	"label.contenido.carnet.general.parrafo.uno": "La cédula de identidad, también conocida como carné, es un documento identificatorio que debe estar en posesión de toda persona mayor de 18 años residente en el país. Este documento contiene un Rol Único Nacional (RUN), dicho número se asigna a toda persona (nacional o extranjera) que está inscrita en el Registro Civil de Chile.",
+	"label.contenido.carnet.general.parrafo.dos": "La entrega de la cédula de identidad depende del",
+	"label.contenido.carnet.general.parrafo.dos.link": "Servicio de Registro Civil e identificación de Chile.",
+	
+    "label.contenido.titulo.juridico.identidad.general": "carnet o cédula de identidad",
+	
+    "label.contenido.titulo.juridico.identidad.carnet": "¿cómo tramitar mi carné como extranjero?",
+	"label.contenido.parrafo.uno.juridico.identidad.carnet" :"Este trámite lo hemos hecho más facil para ti, este proceso se divide en dos grandes etapas:",
+	"label.contenido.parrafo.dos.juridico.identidad.carnet" :"Si eres extranjero con más de 18 años residiendo en el país y/o titular de cualquier tipo de visa o de permanencia definitiva.",
+	"label.contenido.parrafo.tres.juridico.identidad.carnet" :"El gobierno de Chile te pide que obtengas tu carnet dentro de los 30 días siguientes a la fecha de entrega del certificado de permanencia definitiva o desde que se estampa la visa de tu pasaporte.",
+	"label.contenido.lista.item.uno.juridico.identidad.carnet": "Documentación",
+    "label.contenido.lista.item.dos.juridico.identidad.carnet": "Ejecución",
+	
+	"label.tramite.core.carnet.titulo.documentacion": "DOCUMENTACIÓN",
+	"label.tramite.core.carnet.titulo.ejecucion": "EJECUCIÓN",
+    
+    "label.tramite.core.carnet.fase.uno.titulo": "1. Selecciona tu caso",
+    "label.tramite.core.carnet.fase.uno.parrafo": "Según la opción que selecciones, en el segundo paso podrás ver los documentos que son necesarios.",
+	"label.tramite.core.carnet.fase.uno.radio.uno": "a) Primera solicitud de Cédula",
+	"label.tramite.core.carnet.fase.uno.radio.dos": "b) Visa temporaria sujeta a contrato o estudiante",
+	"label.tramite.core.carnet.fase.uno.radio.tres": "c) Permanencia Definitiva",
+	"label.tramite.core.carnet.fase.uno.radio.cuatro": "d) Visa Dependiente",
+	
+	"label.tramite.core.carnet.fase.dos.titulo": "2. Requisitos",
+	"label.tramite.core.carnet.fase.dos.parrafo": "Marca el documento que vayas obteniendo, para luego mostrarte un resumen de tu avance dentro de este proceso burocrático",
+	"label.tramite.core.carnet.fase.dos.opt.uno.check.uno": "Presentar el pasaporte vigente o título de residencia.",
+	"label.tramite.core.carnet.fase.dos.opt.uno.check.dos": "Fotocopia simple de la hoja de personalización del documento anterior, en la cual se visualiza la fotografía, datos personales y firma.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.uno": "Fotocopia de la página de personalización del pasaporte donde aparece la fotografía, nombres y apellidos, fecha de nacimiento y sexo, o título de residencia, donde se visualice claramente la fecha de entrada.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.dos": "Fotocopia de la visa.",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.tres": "Original y fotocopia del certificado de Registro de Visa otorgado por la Policía de Investigaciones (PDI).",
+	"label.tramite.core.carnet.fase.dos.opt.dos.check.cuatro": "Si es una visa consular, sujeta a contrato, temporal o estudiante, debe presentar los documentos indicados para una primera filiación y la copia del timbre de entrada al país, independiente si es una primera filiación o una renovación.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.uno": "Original y fotocopia del certificado de Permanencia Definitiva otorgado por el ministerio del Interior.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.dos": "Original y fotocopia del certificado de Registro de Permanencia Definitiva proporcionado por la Policía de Investigaciones (PDI) o fotocopia del certificado de Vigencia de la Permanencia Definitiva dado por la PDI, si la fecha de otorgamiento de la permanencia es mayor a un año.",
+	"label.tramite.core.carnet.fase.dos.opt.tres.check.tres": "El grupo familiar que ingresa con la persona titular de la visa tiene el mismo tipo de visa que éste(a), pero dependiente. Tienes que adjuntar a la solicitud una fotocopia simple de la hoja de personalización del pasaporte, visa, timbre de entrada (si corresponde) y de tarjeta de registro PDI. Si posees visa dependiente (grupo familiar), tienes que adjuntar además la fotocopia de los documentos del o la titular de la visa.",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.parrafo": "El grupo familiar que ingresa con el titular de la visa tiene el mismo tipo de visa que éste, pero dependiente. Debe adjuntarse:",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.check.uno": "Fotocopia simple de la hoja de datos del pasaporte, visa, timbre de entrada (si corresponde) y de tarjeta de registro de la Policía de Investigaciones (PDI).",
+	"label.tramite.core.carnet.fase.dos.opt.cuatro.check.dos": "Fotocopia de los documentos del titular de la visa (pasaporte, visa y registro PDI).",
+	"label.tramite.core.carnet.fase.dos.modal.titulo" :"¿Ya tienes este documento?",
+	"label.tramite.core.carnet.fase.dos.modal.parrafo" :"Si presionas si, no podras volver a desmarcar esta opción",
+	"label.tramite.core.carnet.fase.dos.modal.boton.confirmar": "Si, Ya lo tengo",
+	"label.tramite.core.carnet.fase.dos.modal.boton.rechazar": "No, Aun no lo tengo",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.titulo": "¡Cada vez falta menos!",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.parrafo": "Marcaste el documento como obtenido",
+	"label.tramite.core.carnet.fase.dos.modal.rechazar.titulo": "¡Vuelve a marcar cuando tengas el documento!",
+	"label.tramite.core.carnet.fase.dos.modal.confirmar.parrafo": "Es primordial tener todo lo necesario",
+
+	
+	"label.tramite.core.carnet.fase.tres.titulo": "3. Atención",
+	"label.tramite.core.carnet.fase.tres.parrafo": "Con la documentacion preparada, opta como solicitar hora presencial o vía online. A continuación, te presentamos los distintos modos:",
+	"label.tramite.core.carnet.fase.tres.panel.uno.header": "¿Cómo solicitar hora en registrocivil.cl?",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.uno": "Ingresa a",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.dos": "Selecciona Trámites en línea, después Reservar hora luego y la opción Cédula y pasaporte.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.tres": "Escoge la solicitud primera obtención extranjero o renovación extranjero según sea tu caso.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro": "Elige la region, oficiona y horarios disponibles",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro.destacado": "La plataforma te pedirá ingresar tu número de RUN o visa, nombres, apellidos, correo electrónico y teléfono.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.cinco": "Ingresa el código de verificación que aparecerá en pantalla.",
+	"label.tramite.core.carnet.fase.tres.panel.uno.lista.seis": "¡Y Listo! Solo debes imprimir tu número de reserva.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.header": "¿Cómo reservar hora vía Call Center?",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.uno": "Llama al número 600 370 2000.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.dos": "Selecciona opción 2 de atención.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.tres": "Te pedirán el número de VISA o de RUN (si es que ya posees tu carné)",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.cuatro": "Te informarán la hora disponible.",
+	"label.tramite.core.carnet.fase.tres.panel.dos.lista.cinco": "Te entregarán tu número de reserva.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.header": "¿Cómo solicitar hora en las mismas oficinas?",
+	"label.tramite.core.carnet.fase.tres.panel.tres.parrafo.uno": "Al llegar a la oficina:",
+	"label.tramite.core.carnet.fase.tres.panel.tres.parrafo.dos": "Si tienes dudas de donde está el dispensador y/o los módulos siempre puedes preguntar a los guardias. Generalmente están preparados para guiar a las personas dentro de las oficinas.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.uno": "Dirígete al dispensador de turnos e ingresa el número de reserva",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.uno": " si hiciste el procedimiento anterior. Debes ingresar el número de reserva desde 15 minutos antes y hasta 15 minutos después de la hora reservada. Después de ese tiempo, el sistema anulará automáticamente la reserva.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.dos": "Si no hiciste la reserva online,",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.dos": "en el mismo dispensador podrás reservar hora de atención dependiendo de los cupos que hayan en el sistema.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.dos.destacado.uno": "Retira el ticket de atención y espera el turno",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.dos": "Los turnos se irán avisando a través de una pantalla.",
+	"label.tramite.core.carnet.fase.tres.panel.tres.lista.tres": "En el módulo de atención, entrega el ticket y realiza tu solicitud.",
+	
+	"label.tramite.core.carnet.fase.cuatro.titulo": "4. Costo",
+	"label.tramite.core.carnet.fase.cuatro.parrafo": "Este documento tiene un precio de $4.270 pesos. Es recomendable cancelar con efectivo.",
+	
+	"label.tramite.core.carnet.fase.cinco.titulo": "5. En Oficina",
+	"label.tramite.core.carnet.fase.cinco.parrado": "Al llegar a las dependencias del Registro Civil, sigue los siguientes pasos para ejecutar a tu solicitud.",
+	"label.tramite.core.carnet.fase.cinco.lista.uno": "Dirígite al dispensador de turnos e ingresa el número de reserva.",
+	"label.tramite.core.carnet.fase.cinco.lista.dos": "Retira el ticket de atención y espera el turno.",
+	"label.tramite.core.carnet.fase.cinco.lista.tres": "Cuando sea tu turno acércate al módulo de atención y solicita tu carnet, con la documentación requerida.",
+	"label.tramite.core.carnet.fase.cinco.lista.cuatro": "Al terminar el procedimiento, revisa tus datos registrados en la solicitud y en el comprobante",
+	"label.tramite.core.carnet.fase.cinco.lista.cinco": "Dirígete a la oficina que solicitaste para retirar el documento con el comprobante correspondiente.",
+	"label.tramite.core.carnet.fase.cinco.lista.seis.uno": "En el sitio web",
+	"label.tramite.core.carnet.fase.cinco.lista.seis.dos": "puedes revisar el estado de tu documento.",	
+	
+    "label.perfil.menu.actividad": "Actividad",
+    "label.perfil.menu.descargas": "Descargas",
+    "label.perfil.menu.resenas": "Reseñas",
+    "label.perfil.menu.historial": "Historial",
+
+    "label.perfil.contenido.actividad.parrafo.uno": "En esta sección podrás ver un resumen de los trámites, actividades o eventos en los cuales te has apuntado.",
+	"label.perfil.contenido.actividad.parrafo.dos": "Podrás ver el conteo de trámites consultados, en curso y finalizados.",
+    "label.perfil.contenido.actividad.boton.consultados": "Trámites consultados",
+    "label.perfil.contenido.actividad.boton.curso": "Trámites en curso",
+    "label.perfil.contenido.actividad.boton.finalizados": "Trámites finalizados",
+	
+	
+	
+	
+	
+	"label.error.404":"No se ha encontrado la url solicitada por este servidor.",
+	"label.no.disponible.titulo": "Espacio en construcción.",
+	"label.no.disponible": "Estamos trabajando en esta nueva sección para brindarte una mejor experiencia."
+
+
+
+}

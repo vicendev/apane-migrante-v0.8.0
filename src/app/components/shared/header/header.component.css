@@ -1,0 +1,42 @@
+.navbar-custom {
+    background-color: #F39634;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #491311;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #491311;
+    font-size: 25px;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.logo-img {
+    width: 115px;
+    position: absolute; 
+    right: 50px;
+    top: 0;
+    z-index:1;
+    border: 2px solid #F4EF9A;
+    border-radius: 100%;
+}
+.link-pointer:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 991px) {
+
+    .logo-img {
+        width: 80px;
+        position: absolute; 
+        right: 50px;
+        top: 0;
+        z-index:1;
+    }
+}

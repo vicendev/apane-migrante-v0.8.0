@@ -1,0 +1,123 @@
+<div class="row" *ngIf="!userIsAuthenticated && !loadingPage" id="home-no-auth">
+  <div class="col-12">
+
+    <!-- Seccion logo principal-->
+    <div class="row mt-5 animated fadeIn img-background ">
+      <div class="col-12">
+
+        <div class="row">
+          <div class="col-12">
+            <h1 class="text-center h-cafe-sorry-80-borde mt-4">{{'label.home.no.autenticado.titulo.saludo' | translate}}</h1>
+          </div>
+        </div>
+
+        <div class="row ml-5 mr-5">
+          <div class="col-12">
+            <p class="p-ama-claro-betm-30-borde text-center">
+              {{'label.home.no.autenticado.titulo.parrafo' | translate}}
+            </p>
+          </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <div class="row mt-3 mb-5">
+          <div class="col-12">
+            
+            <div class="d-flex">
+              <ul style="list-style: none;" class="mx-auto justify-content-center p-ama-claro-betm-30-borde">
+                <li>&bull;&nbsp;{{'label.home.no.autenticado.titulo.lista.uno' | translate}}</li>
+                <li>&bull;&nbsp;{{'label.home.no.autenticado.titulo.lista.dos' | translate}}</li>
+                <li>&bull;&nbsp;{{'label.home.no.autenticado.titulo.lista.tres' | translate}}</li> 
+              </ul>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>       
+    </div>
+
+
+  
+    <!-- Fin Seccion logo principal-->
+
+  </div>
+</div>
+
+<div class="row mt-5" *ngIf="userIsAuthenticated && !loadingPage">
+  <div class="col-12">
+
+         <!-- Seccion Opciones si esta autenticado-->
+    <div class="row backCol-normal">
+      <div class="col-12">
+
+        <!-- Titulo de Página-->
+        <div class="row mt-5 animated slideShow">
+          <div class="col-12 text-center">
+            <h1 class="h-blanca-sorry-60 mt-1">
+              ¡{{'label.home.autenticado.titulo.saludo' | translate}} 
+              {{ usuario.nombre }}!</h1>
+            <p class="p-ama-claro-betm-40 mt-1">
+              {{'label.home.autenticado.parrafo' | translate}}
+            </p>
+          </div>
+        </div>
+        <!-- Fin Titulo de Página-->
+
+        <!-- Opciones de botones -->
+        <div class="row animated fadeIn sinpadding pl-1 pr-1 mt-5 mb-5">
+          <div class="col-3">
+            <button 
+              type="button" 
+              class="btn btn-ancho-alto-naranjo" 
+              id="judicial"
+              (click)="navegarMain('juridico')">
+              <img src="assets/img/png/juridico-icono.png" alt="">
+              <p class="p-ama-claro-sorry-25 pt-5">{{'label.boton.juridico' | translate}}</p>
+            </button>
+          </div>
+          <div class="col-3">
+            <button 
+              type="button" 
+              class="btn btn-ancho-alto-ama-claro " 
+              id="legal"
+              (click)="navegarMain('legal')">
+              <img src="assets/img/png/legal-icono.png" alt="">
+              <p class="p-cafe-sorry-25 pt-5">{{'label.boton.legal' | translate}}</p>
+            </button>
+          </div>
+          <div class="col-3">
+            <button 
+              type="button" 
+              class="btn btn-ancho-alto-naranjo" 
+              id="social"
+              (click)="navegarMain('social')">
+              <img src="assets/img/png/social-icono.png" alt="">
+              <p class="p-ama-claro-sorry-25 pt-5">{{'label.boton.social' | translate}}</p>
+            </button>
+          </div>
+          <div class="col-3">
+            <button 
+              type="button" 
+              class="btn btn-ancho-alto-ama-claro" 
+              id="cultural"
+              (click)="navegarMain('cultural')">
+              <img src="assets/img/png/cultural-icono.png" alt="">
+              <p class="p-cafe-sorry-25 pt-5">{{'label.boton.cultural' | translate}}</p>
+            </button>
+          </div>
+        </div>
+        <!-- Fin Opciones de botones -->
+
+      </div>
+    </div>
+
+    <!-- Fin Seccion Opciones si esta autenticado -->
+
+  </div>
+</div>
+
+<div class="row" *ngIf="loadingPage">
+  <div class="col-12">
+    <app-loading></app-loading>
+  </div>
+</div>

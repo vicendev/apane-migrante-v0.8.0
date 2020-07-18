@@ -1,0 +1,48 @@
+<div class="row mt-5 animated fadeIn fast" id="login">
+  <div class="col-12">
+    
+    <div class="row text-center">
+      <div class="col-12">
+        <p class="p-cafe-betm-30 pb-5">
+          {{'label.login.titulo' | translate}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row mr-1 ml-1">
+      <div class="col-12 text-center backCol-box-cafe-radius">
+        <p class="p-ama-claro-betm-25 pt-3">
+          {{'label.login.box.parrafo' | translate}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row img-background">
+      <div class="col-12">
+        
+        <div class="row mt-5 text-center">
+          <div class="col-md-6 m-auto ">
+              <button class="btn-login font-facebook" (click)="loginFB()">
+                  <p class="pt-3 text-center"><i class="fa fa-facebook-official pr-4" aria-hidden="true"></i>FACEBOOK</p>
+                </button>
+          </div>    
+        </div>
+
+        <div class="row text-center mt-5">
+          <div class="col-md-6 m-auto">
+            <div class="g-signin2" data-onsuccess="onSignIn">
+              <button class="btn-login font-google" id="googleBtn">
+                <p class="pt-3 text-center"><i class="fa fa-google-plus-square pr-4" aria-hidden="true"></i>GOOGLE &nbsp;&nbsp;&nbsp;</p>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <br><br><br><br><br><br>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

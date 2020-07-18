@@ -1,1 +1,348 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: Sorry;
+  src: url('assets/fonts/SorryNotSorry/KGSorryNotSorryChub.ttf');
+}
+
+@font-face {
+  font-family: Betm;
+  src: url('assets/fonts/Betm/BetmRounded-Regular.otf');
+}
+
+html body{
+    background: #f2f2f2;
+}
+
+/* Customs */
+
+.tam-icono {
+  width: 48px;
+  height: 48px;
+}
+
+.posicion-titulo-mt-4-pct {
+  margin-top: 4%;
+}
+
+.posicion-titulo-mt-17-pct {
+  margin-top: 17.8%;
+}
+
+/* Fin Customs */
+
+
+/* Fonts y Colores*/
+
+/* FONT FAMILY Betm */
+
+.p-ama-claro-betm-25 {
+  font-family: Betm;
+  color: #F4EF9A;
+  font-size: 25px;
+}
+
+.p-ama-claro-betm-30-borde {
+  font-family: Betm;
+  text-shadow: 1px #050505;
+  color: #F4EF9A;
+  font-size: 30px;
+  text-shadow: rgb(73, 19, 17) 2px 0px 0px, rgb(73, 19, 17) 1.75517px 0.958851px 0px, rgb(73, 19, 17) 1.0806px 1.68294px 0px, rgb(73, 19, 17) 0.141474px 1.99499px 0px, rgb(73, 19, 17) -0.832294px 1.81859px 0px, rgb(73, 19, 17) -1.60229px 1.19694px 0px, rgb(73, 19, 17) -1.97998px 0.28224px 0px, rgb(73, 19, 17) -1.87291px -0.701566px 0px, rgb(73, 19, 17) -1.30729px -1.5136px 0px, rgb(73, 19, 17) -0.421592px -1.95506px 0px, rgb(73, 19, 17) 0.567324px -1.91785px 0px, rgb(73, 19, 17) 1.41734px -1.41108px 0px, rgb(73, 19, 17) 1.92034px -0.558831px 0px;
+}
+
+.p-ama-claro-betm-40 {
+  font-family: Betm;
+  color: #F4EF9A;
+  font-size: 40px;
+}
+
+.p-blanca-betm-15 {
+  font-family: Betm;
+  color: #FFFFFF;
+  font-size: 25px;
+}
+
+.p-blanca-betm-50 {
+  font-family: Betm;
+  color: #FFFFFF;
+  font-size: 50px;
+}
+
+.p-naranjo-betm-25 {
+  font-family: Betm;
+  color: #F39634;
+  font-size: 25px;
+}
+
+.p-negro-betm-20-bold {
+  font-family: Betm;
+  color: #050505;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.p-negro-betm-25 {
+  font-family: Betm;
+  color: #050505;
+  font-size: 25px;
+  line-height: normal;
+}
+
+.h-negro-betm-100 {
+  font-family: Betm;
+  color: #050505;
+  font-size: 100px;
+}
+
+.p-cafe-betm-25 {
+  font-family: Betm;
+  color: #491311;
+  font-size: 25px;
+}
+
+.p-cafe-betm-30 {
+  font-family: Betm;
+  color: #491311;
+  font-size: 30px;
+}
+
+/* Fin FONT FAMILY Betm */
+
+/* FONT FAMILY Sorry */
+
+.h-blanca-sorry-40 {
+  font-family: Sorry;
+  color: #FFFFFF;
+  font-size: 40px;
+}
+
+.h-blanca-sorry-60 {
+  font-family: Sorry;
+  color: #FFFFFF;
+  font-size: 60px;
+}
+
+.h-negro-sorry-30 {
+  font-family: Sorry;
+  color: #050505;
+  font-size: 30px;
+}
+
+.h-negro-sorry-50 {
+  font-family: Sorry;
+  color: #050505;
+  font-size: 50px;
+}
+
+.h-negro-sorry-80 {
+  font-family: Sorry;
+  color: #050505;
+  font-size: 80px;
+}
+
+.p-ama-claro-sorry-25 {
+  font-family: Sorry;
+  color: #F4EF9A;
+  font-size: 25px;
+}
+
+.h-ama-claro-sorry-45 {
+  font-family: Sorry;
+  color: #F4EF9A;
+  font-size: 45px;
+}
+
+.h-ama-claro-sorry-45-borde {
+  font-family: Sorry;
+  text-shadow: 1px #050505;
+  color: #F4EF9A;
+  font-size: 45px;
+  text-shadow: rgb(73, 19, 17) 2px 0px 0px, rgb(73, 19, 17) 1.75517px 0.958851px 0px, rgb(73, 19, 17) 1.0806px 1.68294px 0px, rgb(73, 19, 17) 0.141474px 1.99499px 0px, rgb(73, 19, 17) -0.832294px 1.81859px 0px, rgb(73, 19, 17) -1.60229px 1.19694px 0px, rgb(73, 19, 17) -1.97998px 0.28224px 0px, rgb(73, 19, 17) -1.87291px -0.701566px 0px, rgb(73, 19, 17) -1.30729px -1.5136px 0px, rgb(73, 19, 17) -0.421592px -1.95506px 0px, rgb(73, 19, 17) 0.567324px -1.91785px 0px, rgb(73, 19, 17) 1.41734px -1.41108px 0px, rgb(73, 19, 17) 1.92034px -0.558831px 0px;
+}
+
+.p-cafe-sorry-25 {
+  font-family: Sorry;
+  color: #491311;
+  font-size: 25px;
+}
+
+.h-cafe-sorry-80 {
+  font-family: Sorry;
+  color: #491311;
+  font-size: 80px;
+}
+
+.h-cafe-sorry-80-borde {
+  font-family: Sorry;
+  color: #491311;
+  font-size: 80px;
+  text-shadow: rgb(244, 239, 154) 2px 0px 0px, rgb(244, 239, 154) 1.75517px 0.958851px 0px, rgb(244, 239, 154) 1.0806px 1.68294px 0px, rgb(244, 239, 154) 0.141474px 1.99499px 0px, rgb(244, 239, 154) -0.832294px 1.81859px 0px, rgb(244, 239, 154) -1.60229px 1.19694px 0px, rgb(244, 239, 154) -1.97998px 0.28224px 0px, rgb(244, 239, 154) -1.87291px -0.701566px 0px, rgb(244, 239, 154) -1.30729px -1.5136px 0px, rgb(244, 239, 154) -0.421592px -1.95506px 0px, rgb(244, 239, 154) 0.567324px -1.91785px 0px, rgb(244, 239, 154) 1.41734px -1.41108px 0px, rgb(244, 239, 154) 1.92034px -0.558831px 0px;
+}
+
+/* Fin FONT FAMILY Sorry */
+
+
+/* Fin Fonts y Colores*/
+
+
+/* Botones, Colores y tamaños */
+
+.btn-alto-naranjo{
+  background-color: #F39634 !important;
+  height: 230px;
+  width: 120px !important;
+}
+
+.btn-alto-ama-claro{
+  background-color: #F4EF9A !important;
+  height: 230px;
+  width: 120px !important;
+}
+
+.btn-ancho-alto-naranjo{
+  background-color: #F39634 !important;
+  height: 300px;
+  width: 100% !important;
+  border-radius: 0 !important;
+
+  box-shadow:inset 0px 1px 0px 0px #F4EF9A;
+	background:linear-gradient(to bottom, #f38434 5%, #F39634 100%) !important;
+	border:2px solid #333029;
+}
+
+.btn-ancho-alto-ama-claro{
+  background-color: #F4EF9A !important;
+  height: 300px;
+  width: 100% !important;
+  border-radius: 0 !important;
+
+  box-shadow:inset 0px 1px 0px 0px #F39634;
+	background:linear-gradient(to bottom, #f4e19a 5%, #F4EF9A 100%) !important;
+	border:2px solid #333029;
+}
+
+.btn-ancho-alto-naranjo:hover{
+  box-shadow: 0 0.5em 0.5em -0.4em #F4EF9A;
+  transform: translateY(-0.25em);
+  transition: all 400ms;
+}
+
+.btn-ancho-alto-ama-claro:hover{
+  box-shadow: 0 0.5em 0.5em -0.4em #ffa260;
+  transform: translateY(-0.25em);
+  transition: all 400ms;
+}
+
+
+/* Fin Botones, Colores y tamaños */
+
+/* Backgrounds, boxes, colores y transparencia*/
+
+.backCol-box-blue-transparente{
+  background: rgba(15, 105, 180, 0.3);
+  border-radius: 10px;
+}
+
+.backCol-box-cafe-transparente-radius{
+  background: rgba(73, 19, 17, 0.8);
+  border-radius: 20px;
+}
+
+.backCol-box-cafe-radius{
+  background: rgba(73, 19, 17);
+  border-radius: 20px;
+}
+
+.backCol-ama-claro-radius{
+  background-color: #F4EF9A !important;
+  border-radius: 5px;
+}
+
+.backCol-transparente{
+  background-color: rgba(73, 19, 17, 0.4);
+}
+
+.backCol-normal{
+  background-color: rgba(73, 19, 17);
+}
+
+.backCol-ama-claro{
+  background-color: #F4EF9A;
+}
+
+
+/* FIN Backgrounds, boxes, colores y transparencia */
+
+
+/* Animaciones */
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+  .slideShow {
+    animation-name: slide;
+  }
+
+  .pulse {
+    animation-name: pulse;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  .spin {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(-2000px)
+    }
+    100% {
+      transform: translateX(0px)
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.699);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.863);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+  }
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }}

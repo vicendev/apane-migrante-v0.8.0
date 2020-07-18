@@ -1,0 +1,82 @@
+#tramite-carnet {
+    min-height: 100vh;
+}
+
+/* Global Tags */
+
+#main-tramite-carnet, h3 {
+    font-family: Sorry;
+    color: #FFFFFF;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+#main-tramite-carnet, h5 {
+    font-family: Betm;
+    color: #F39634;
+    font-size: 20px;
+}
+#main-tramite-carnet, p {
+    font-family: Betm;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+/* Fin Global Tags */
+
+/* ngPrime Components */
+
+::ng-deep .ui-accordion {
+    background: rgba(73, 19, 17) !important;
+}
+
+::ng-deep .ui-accordion-header {
+    background: rgba(73, 19, 17) !important;
+}
+
+::ng-deep .ui-accordion .ui-accordion-content {
+    background: rgba(73, 19, 17) !important;
+}
+
+/* Fin ngPrime Components*/
+
+/* Progress Bar */
+
+::ng-deep .progress-bar{
+    background-color:#F4EF9A  !important;
+    color: #050505;
+    border: 1px solid #050505;
+}
+
+/* Fin Progress Bar*/
+
+/* SIDE BAR STEPS */
+#tramite-carnet .font-position {
+    padding-right: 8%;
+}
+
+#tramite-carnet .circle {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(15, 105, 180);
+    border-radius: 50%;
+    margin: auto;
+    color: #FFFFFF;
+    font-family: Betm;
+    font-size: 20px;
+}
+
+#tramite-carnet .circle::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 20px solid rgb(15, 105, 180);
+    border-width: 0 8px 8px 8px;
+    width: 1px;
+    height: 400px;
+}
+
+/* FIN SIDE BAR STEPS */

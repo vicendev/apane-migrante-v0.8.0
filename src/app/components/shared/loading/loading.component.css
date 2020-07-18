@@ -1,0 +1,15 @@
+#loading {
+    height: 100%;
+    background-color: #491311;
+}
+
+#loading, .img-fondo {
+    background-image: url('../../../../assets/img/jpg/loading.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 0%;
+}
+
+.img-border {
+    border-radius: 100%;
+    border: 2px solid #F4EF9A;
+}
