@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
+import { SidebarService } from './sidebar.service';
 
 
 @Injectable({
@@ -7,7 +8,9 @@ import * as jwt_decode from 'jwt-decode';
 })
 export class UtilsService {
 
-  constructor() { }
+  constructor(
+    private _sidebarService: SidebarService
+  ) { }
 
   /**
   * Obtiene token con informacion de la sesión del usuario
@@ -38,6 +41,34 @@ export class UtilsService {
     }
 
     return usuario;
-
   }
+
+  /**
+   * Retorna un booleando para saber si la pantalla es de mobil o escritorio
+   */
+  obtenerPantallaMobil(): boolean {
+    const minMobileWidth = 992;
+
+    let mobileScreen = window.innerWidth < minMobileWidth;
+
+    return mobileScreen;
+  }
+
+  /**
+   * Abrir el componente sidebar
+   * @param id id del sidebar component
+   */
+  abrirSideBarMenu (id: string){
+    this._sidebarService.open(id);
+  }
+
+  /**
+   * Cerrar el componente sidebar
+   * @param id id del sidebar component
+   */
+  cerrarSideBarMenu (id: string) {
+    this._sidebarService.close(id);
+  }
+
+
 }

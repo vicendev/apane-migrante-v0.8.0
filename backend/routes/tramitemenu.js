@@ -44,6 +44,28 @@ app.get('/:menuID', (req, res) => {
         });
 });
 
+app.get('/privateID/:id', (req, res) => {
+
+    const ID = req.params.id
+
+    TramiteMenu.find( { _id: ID } )
+        .exec( (err, tramiteMenu) => {
+
+            if ( err ) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            res.json({
+                ok: true,
+                tramiteMenu
+            });
+        });
+
+})
+
 app.get('/firstItem/:menuID', (req, res) => {
 
     const MENUID = req.params.menuID

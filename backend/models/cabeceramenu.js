@@ -20,10 +20,6 @@ let cabeceraMenuSchema = new Schema({
         type: String,
         required: [true, 'La imagen es requerida']
     },
-    iconPath: {
-        type: String,
-        required: [true, 'El icono es requerido']
-    },
     fechaCreacion: {
         type: String,
         required: [true, 'La fecha de creacion es requerida']

@@ -1,16 +1,10 @@
 <div class="row h-100 animated fadeIn" id="loading">
   <div class="col-12">
     
-    <div class="row img-fondo text-center mt-4">
-      <div class="col-12">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <img class="img-responsive spin img-border" src="assets/img/png/logo.png" alt="">
-      </div>
-    </div>
-
-    <div class="row text-center">
-      <div class="col-12">
-        <p class="p-blanca-betm-50">Construimos una red de experiencias prácticas</p>
+    <div class="row h-100 img-fondo text-center mt-4">
+      <div class="col-12">  
+        <img class="img-fluid spin img-border" src="assets/img/png/logo.png" alt="">
+        <p *ngIf="!mobileScreen" class="p-blanca-betm-50">Construimos una red de experiencias prácticas</p>
       </div>
     </div>
 

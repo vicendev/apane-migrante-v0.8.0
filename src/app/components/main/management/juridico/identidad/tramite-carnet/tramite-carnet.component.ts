@@ -9,6 +9,7 @@ import { TramiteProgresoService } from '../../../../../../services/tramiteprogre
 import Swal from 'sweetalert2'
 import { UtilsService } from '../../../../../../services/utils.service';
 import { TranslateService } from '../../../../../../services/translate.service';
+import { DataProgreso } from '../../../../../../models/static/dataprogreso';
 
 const swalWithBootstrapButtons = Swal.mixin({
   customClass: {
@@ -25,6 +26,10 @@ const swalWithBootstrapButtons = Swal.mixin({
 })
 export class TramiteCarnetComponent implements OnInit {
 
+  // Tamaño pantalla
+  public mobileScreen: boolean;
+  public loadingPage: boolean;
+
   // CheckBox fase dos Controls
   checkValues: any;
   checkDisabled: any;
@@ -32,14 +37,14 @@ export class TramiteCarnetComponent implements OnInit {
   private _tramiteCoreByIDSub: Subscription;
   private _tramiteProgresoUserCoreIDSub: Subscription;
   private _tramiteProgreso: TramiteProgreso;
+  private _updateProgreso: TramiteProgreso;
   private _token: any;
   private _userID: any;
   private _titleState: any;
 
-  private _updateProgreso: any;
   public radioValue: string;
 
-  public dataProgreso: any;
+  public dataProgreso: DataProgreso;
   public radioOpts: any;
 
   constructor(
@@ -47,22 +52,18 @@ export class TramiteCarnetComponent implements OnInit {
     private _tramiteCoreService: TramiteCoreService,
     private _tramiteProgresoService: TramiteProgresoService,
     private _translateService: TranslateService,
-    private _utils: UtilsService
+    private _utils: UtilsService,
   ) {
+
+    this.loadingPage = true;
+
+    this.dataProgreso = null;
 
     this.radioOpts = {
       opt1: 'primera_solicitud',
       opt2: 'visa_temporaria',
       opt3: 'permanencia_definitiva',
       opt4: 'visa_dependiente'
-    }
-
-    this.dataProgreso = {
-      numFases: 0,
-      fase: 1,
-      titulo: '',
-      progreso: 0,
-      optFaseUno: {faseUno:''},
     }
 
     this.checkValues = {
@@ -90,12 +91,25 @@ export class TramiteCarnetComponent implements OnInit {
 
   ngOnInit() {
 
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
+
+    this.dataProgreso = new DataProgreso ({
+      numFases: 0,
+      fase: 1,
+      titulo: '',
+      progreso: 0,
+      opts: [],
+    }) 
+
     const ID = this._activateRoute.snapshot.params.id;
     
     this._token = this._utils.obtenerDataUsuario();
     this._userID = this._token.usuario._id;
     this.obtenerTramiteCoreCarnet(ID);
 
+    setTimeout( () => {
+      this.loadingPage = false;
+    }, 3000)
   }
 
   obtenerTramiteCoreCarnet(id: string) {
@@ -129,7 +143,11 @@ export class TramiteCarnetComponent implements OnInit {
           this._tramiteProgresoService.addTramiteProgreso(this._tramiteProgreso);
           this._tramiteCoreByIDSub.unsubscribe();
           this._tramiteProgresoUserCoreIDSub.unsubscribe();
-          this.obtenerProgresoUsuario(tramiteCoreID);
+
+          setTimeout( () => {
+            this.obtenerProgresoUsuario(tramiteCoreID);
+          }, 3000)
+          
         } else {
           this._tramiteProgreso = tramiteProgreso[0];
           
@@ -138,8 +156,8 @@ export class TramiteCarnetComponent implements OnInit {
           this.dataProgreso.progreso = (this._tramiteProgreso.fase / this.dataProgreso.numFases) * 100;
 
           if (this._tramiteProgreso.opts[0]) {
-            this.dataProgreso.optFaseUno = this._tramiteProgreso.opts[0]
-            this.radioValue = this.dataProgreso.optFaseUno.faseUno;
+            this.dataProgreso.opts = this._tramiteProgreso.opts[0]
+            this.radioValue = this.dataProgreso.opts.faseUno;
           }
 
           if (this._tramiteProgreso.opts[1]) {
@@ -256,6 +274,22 @@ export class TramiteCarnetComponent implements OnInit {
         check.checked = false;
       }
     })
+
+  }
+
+  verModalMensaje(titulo: string, label: string) {
+    console.log(titulo, label)
+    Swal.fire(
+      this._translateService.getTranslate(titulo),
+      this._translateService.getTranslate(label),
+      'question'
+    )
+  }
+
+  ngOnDestroy() {
+
+    if (this._tramiteCoreByIDSub) this._tramiteCoreByIDSub.unsubscribe();
+    if (this._tramiteProgresoUserCoreIDSub) this._tramiteProgresoUserCoreIDSub.unsubscribe();
 
   }
 

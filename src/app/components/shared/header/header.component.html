@@ -8,41 +8,54 @@
     <ul class="navbar-nav mx-auto">
       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" >
-          <i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-2" *ngIf="mobileScreen">{{ 'label.navbar.inicio' | translate }}</span>&nbsp;&nbsp;
         </a>
       </li>
-      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+      <!-- <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
         <a class="nav-link" [routerLink]="['/about']">
           <i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;
         </a>
-      </li>
+      </li> -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-2" *ngIf="mobileScreen">{{ 'label.navbar.idioma' | translate }}</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" (click)="getTranslate('es-ES')" data-toggle="collapse" data-target=".navbar-collapse.show">Español</a>
           <a class="dropdown-item" (click)="getTranslate('kre-KRE')" data-toggle="collapse" data-target=".navbar-collapse.show">Kreyòl</a>
         </div>
       </li>
-      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated">
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated && userEstado">
         <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="active" >
-          &nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-2" *ngIf="mobileScreen">{{ 'label.navbar.perfil' | translate }}</span>&nbsp;&nbsp;
         </a>
       </li>
       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="!userIsAuthenticated">
         <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" >
-          &nbsp;<i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;
+          <i class="fa fa-sign-in" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-2" *ngIf="mobileScreen">{{ 'label.navbar.login' | translate }}</span>&nbsp;&nbsp;
         </a>
       </li>
       <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated">
         <a class="nav-link link-pointer" (click)="onLogout()" >
-          <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-1" *ngIf="mobileScreen">{{ 'label.navbar.logout' | translate }}</span>&nbsp;&nbsp;
         </a>
       </li>
+      <!-- Esconder cuando este el producción -->
+      <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show" *ngIf="userIsAuthenticated && modoTest && userEstado">
+        <a class="nav-link link-pointer" (click)="borrarDatosTesting()" >
+          <i class="fa fa-trash" aria-hidden="true"></i>
+          <span class="p-cafe-betm-15 pl-1" *ngIf="mobileScreen">Borrar Datos Trámites</span>
+        </a>
+      </li>
+      <!-- Esconder cuando este el producción -->
     </ul>
   </div>
   <a class="navbar-brand" [routerLink]="['/']">
-    <img class="img-responsive logo-img" src="assets/img/png/logo-nav.png" alt="">
+    <img class="img-responsive logo-img" src="assets/img/png/logo.png" alt="">
   </a>
 </nav>

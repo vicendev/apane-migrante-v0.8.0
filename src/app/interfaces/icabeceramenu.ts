@@ -3,7 +3,6 @@ export interface ICabeceraMenu {
     titulo: string,
     menuID: string,
     imgPath: string,
-    iconPath: string,
     fechaCreacion: string,
     fechaActualizacion: string
 }

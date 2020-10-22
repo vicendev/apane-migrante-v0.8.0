@@ -35,7 +35,6 @@ export class CabeceraMenuService {
               titulo: data.titulo,
               menuID: data.menuID,
               imgPath: data.imgPath,
-              iconPath: data.iconPath,
               fechaCreacion: data.fechaCreacion,
               fechaActualizacion: data.fechaActualizacion
             };
@@ -55,12 +54,11 @@ export class CabeceraMenuService {
     return this._cabeceraMenuByMenuIDUpdated.asObservable();
   }
 
-  addCabeceraMenu(titulo, menuID, image: File, icon: File){
+  addCabeceraMenu(titulo, menuID, image: File){
     const cabeceraMenuData = new FormData();
     cabeceraMenuData.append("titulo", titulo);
     cabeceraMenuData.append("menuID", menuID);
     cabeceraMenuData.append("image", image, image.name);
-    cabeceraMenuData.append('icon', icon, icon.name);
     this.http
       .post< { ok: boolean, cabeceraMenuPost: any } >(
         BACKEND_URL,

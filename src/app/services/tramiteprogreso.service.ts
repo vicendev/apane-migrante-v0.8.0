@@ -170,4 +170,15 @@ getTramiteByUserIDUpdateListener() {
       });
   }
 
+  deleteTramiteProgresoTesting(idUser: string) {
+
+    const ID = idUser
+    console.log(ID)
+
+    this.http.delete(`${BACKEND_URL}/byIdUser/${ID}`)
+    .subscribe (response => {
+      console.log( response )
+    });
+  }
+
 }

@@ -15,6 +15,8 @@ export class ProfileActivityComponent implements OnInit {
 
   //@ViewChild("modal_ver", {static:false}) modal_ver
 
+  public mobileScreen: boolean;
+
   private _token: any;
   private _userID: string;
   private _tramiteByUserIDSub: Subscription;
@@ -35,6 +37,9 @@ export class ProfileActivityComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
+
     this._token = this._utils.obtenerDataUsuario()
     this._userID = this._token.usuario._id;
 

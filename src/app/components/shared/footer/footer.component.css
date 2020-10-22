@@ -10,3 +10,14 @@
     border: 3px solid #FFFFFF;
     border-radius: 50%;
 }
+
+#icon-line {
+    margin-top: 1.5rem !important;
+}
+
+@media only screen and (max-width: 991px) {
+
+    #footer {
+        font-size: 18px;
+    }
+}

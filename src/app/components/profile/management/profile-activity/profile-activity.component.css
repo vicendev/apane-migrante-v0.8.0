@@ -1,0 +1,8 @@
+#profile-activiy {
+    height: 100vh !important;
+}
+
+.sinpadding [class*="col-"] {
+    padding: 0 !important;
+    margin: 0 !important;
+}

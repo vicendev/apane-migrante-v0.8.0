@@ -1,21 +1,16 @@
-<div class="row">
+<!-- Version PC -->
+<div class="row h-100" *ngIf="!mobileScreen">
   <div class="col-12">
      
     <div class="row mt-3">
 
       <div class="col-1"></div>
 
-      <div class="col-4">
-        <div class="row mr-5">
-
-          <div class="col-12 backCol-ama-claro text-center">
-            <img class="img-fluid mb-5 mt-5" src="assets/img/png/no-disponible.png" alt="">
-          </div>
-
-        </div>
+      <div class="col-3 backCol-ama-claro text-center">
+        <img class="img-fluid img-pos" src="assets/img/png/no-disponible.png" alt="">
       </div>
 
-      <div class="col-7">
+      <div class="col-8">
 
         <div class="row">
           <div class="col-12">
@@ -27,13 +22,61 @@
 
     </div>
     
-    <div class="row backCol-normal">
+    <div class="row backCol-normal" id="label-div">
+      <div class="col-12">
+        <p class="p-blanca-betm-20 pt-3 text-center">
+          {{'label.no.disponible' | translate}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Fin Version PC -->
+
+<!-- Version Mobile -->
+<div class="row h-100" *ngIf="mobileScreen">
+  <div class="col-12">
+     
+    <div class="row mt-3">
+
+
+      <div class="col-12">
+
+        <div class="row">
+          <div class="col-6 title-label">
+            <h1 class="p-cafe-sorry-45 text-position">{{'label.no.disponible.titulo' | translate}}</h1>
+          </div>
+
+          <div class="col-4 backCol-ama-claro">
+          </div>
+
+          <div class="col-1"></div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-6"></div>
+
+          <div class="col-4 backCol-ama-claro img-div-pos">
+            <img class="img-size img-pos img-size" src="assets/img/png/no-disponible.png" alt="">
+          </div>
+
+          <div class="col-1"></div>
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="row backCol-normal" id="label-div">
       <div class="col-12">
         <p class="p-blanca-betm-15 pt-3 text-center">
           {{'label.no.disponible' | translate}}
         </p>
       </div>
-    </div><br><br><br><br><br>
+    </div>
 
   </div>
 </div>
+<!-- Fin Version Mobile -->

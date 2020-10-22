@@ -1,4 +1,5 @@
-<div class="row animated fadeIn" id="identidad-general">
+<!-- Version PC -->
+<div class="row animated fadeIn" id="identidad-general" *ngIf="!mobileScreen">
   <div class="col-12">
 
     <div class="row posicion-titulo-mt-17-pct ml-2">
@@ -13,9 +14,34 @@
         <p class="p-negro-betm-25 pt-3">{{'label.contenido.carnet.general.parrafo.dos' | translate}}
           <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">{{'label.contenido.carnet.general.parrafo.dos.link' | translate}}</a>
         </p>
-        <br><br><br><br><br><br><br><br>
       </div>
     </div>
 
   </div>
 </div>
+<!-- Fin Version PC -->
+
+<!-- Version Mobil -->
+<div class="row animated fadeIn sinpadding" id="identidad-general" *ngIf="mobileScreen">
+  <div class="col-12">
+
+
+    <div class="row mt-2 pl-4">
+      <div class="col-12">
+        <h1 class="h-negro-sorry-25">{{'label.contenido.carnet.general.titulo' | translate}}</h1>
+      </div>
+    </div>
+
+    <div class="row backCol-transparente backCol-transparente pt-4 pl-4 pr-4">
+      <div class="col-11">
+        <p class="p-negro-betm-25">{{'label.contenido.carnet.general.parrafo.uno' | translate}}</p>
+        <p class="p-negro-betm-25 pt-3">{{'label.contenido.carnet.general.parrafo.dos' | translate}}
+          <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">{{'label.contenido.carnet.general.parrafo.dos.link' | translate}}</a>
+        </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<!-- Fin Version Mobil -->

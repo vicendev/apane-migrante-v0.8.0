@@ -61,10 +61,73 @@ export class UserService {
           const now = new Date();
           const expirationDate = new Date(now.getTime() + expiresInDuration * 3000);
           this.saveAuthData(token, expirationDate);
-          this.router.navigate(["/"]);
+
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000)
         }
 
       })
+
+  }
+
+  /**
+   * Ingresar a la aplicación con login de facebook
+   * @param id id de usuario
+   * @param email correo del usuario
+   * @param img imagen desde facebook
+   * @param google si la cuenta es google
+   * @param facebook si la cuenta es facebook 
+   * @param estado estado de la cuenta
+   * @param idToken token de acceso
+   */
+  login_facebook(id: string, email: string, img: string, google: boolean, facebook: boolean, estado: boolean, idToken: string) {
+
+    const userData: User = {id: id, email: email, img: img, google: google, facebook: facebook, estado: estado, idToken: idToken}
+
+    this.http.post<{ token: string, expiresIn: number}>( BACKEND_URL + '/facebook', userData)
+    .subscribe(response => {
+      const token = response.token;
+      this.token = token;
+      if(token) {
+        const expiresInDuration = response.expiresIn
+        this.setAuthTimer(expiresInDuration);
+        this.isAuthenticated = true;
+        this.authStatusListener.next(true);
+        const now = new Date();
+        const expirationDate = new Date(now.getTime() + expiresInDuration * 3000);
+        this.saveAuthData(token, expirationDate);
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000)
+      }
+
+    })
+  }
+
+  /**
+   * Ingresar a la aplicación con una cuenta de invitado
+   * @param estado estado de la cuenta (invitado es false)
+   */
+  login_invitado(estado: boolean) {
+
+    this.http.post<{ token: string, expiresIn: number }>( BACKEND_URL + '/invitado', estado)
+    .subscribe(response => {
+      const token = response.token;
+      this.token = token;
+      if (token) {
+        const expiresInDuration = response.expiresIn
+        this.setAuthTimer(expiresInDuration);
+        this.isAuthenticated = true;
+        this.authStatusListener.next(true);
+        const now = new Date();
+        const expirationDate = new Date(now.getTime() + expiresInDuration * 3000);
+        this.saveAuthData(token, expirationDate);
+
+        this.router.navigate(["/"]);
+      }
+    })
 
   }
 

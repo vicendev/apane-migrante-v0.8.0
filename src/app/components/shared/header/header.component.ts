@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs';
+import { UtilsService } from '../../../services/utils.service';
+import { TramiteProgresoService } from '../../../services/tramiteprogreso.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +11,34 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
 
+  public mobileScreen: boolean;
+  public modoTest: boolean;
+  public userEstado: boolean;
+
   public userIsAuthenticated = false;
   private authListenerSubs: Subscription;
 
-  constructor(private userService: UserService) { }
+  private _token: any;
+  public usuario: any;
+
+  constructor(
+    private userService: UserService,
+    private _utils: UtilsService,
+    private _tramiteProgresoService: TramiteProgresoService) { }
 
   ngOnInit() {
+
+    this.setModoTest();
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
     this.obtenerUsuarioAutenticado();
+
+    if (this.userIsAuthenticated) {
+      this._token = this._utils.obtenerDataUsuario();
+      this.usuario = this._utils.desestructurarObjetoToken(this._token);
+
+      this.userEstado = this.usuario.estado
+    }
+    
   }
 
   /**
@@ -46,6 +69,28 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('lang', lang);
     location.reload();
     
+  }
+
+  borrarDatosTesting() {
+    let token = this._utils.obtenerDataUsuario()
+    let user = this._utils.desestructurarObjetoToken(token);
+
+    this._tramiteProgresoService.deleteTramiteProgresoTesting(user._id);
+
+    setTimeout( () => {
+      window.location.reload();
+    }, 2000)
+  }
+
+  setModoTest() {
+
+    if (localStorage.getItem('modo-test')) {
+      if (localStorage.getItem('modo-test') === 'test') {
+        this.modoTest = true;
+      } else {
+        this.modoTest = false;
+      }
+    }
   }
 
   ngOnDestroy(){

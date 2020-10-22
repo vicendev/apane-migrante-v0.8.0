@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'tramite-carnet/:id', component:TramiteCarnetComponent},
   {path: 'add-content', component:AddContentComponent},
   {path: '404', component:NotFoundComponent},
+  {path: 'not-available', component:NotAvailableComponent},
   {path: '**', pathMatch: 'full', redirectTo:''}
 ];
 

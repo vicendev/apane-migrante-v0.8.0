@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { UtilsService } from '../../services/utils.service';
+import { Router } from '@angular/router';
 
 declare const gapi: any;
 
@@ -10,12 +12,26 @@ declare const gapi: any;
 })
 export class LoginComponent implements OnInit {
 
+  public mobileScreen: boolean;
+
   private _id: string = '761492868757-vdko950dp3t3m6iqn52opcarck4p0o5m.apps.googleusercontent.com'
   public auth2: any;
   
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private _utils: UtilsService,
+    private _router: Router
+    ) { }
 
   ngOnInit() {
+
+    let user = this._utils.obtenerDataUsuario()
+    
+    if ( user ) {
+      this._router.navigate(['/'])
+    }
+
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
     this.fbLibrary();
   }
 
@@ -34,15 +50,17 @@ export class LoginComponent implements OnInit {
   }
 
   public attachSignin(element) {
-    this.auth2.attachClickHandler(element, {},
+    if ( element ) {
+      
+      this.auth2.attachClickHandler(element, {},
       (googleUser) => {
 
         let profile = googleUser.getBasicProfile();
-        console.log('Token || ' + googleUser.getAuthResponse().id_token);
-        console.log('ID: ' + profile.getId());
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail());
+        // console.log('Token || ' + googleUser.getAuthResponse().id_token);
+        // console.log('ID: ' + profile.getId());
+        // console.log('Name: ' + profile.getName());
+        // console.log('Image URL: ' + profile.getImageUrl());
+        // console.log('Email: ' + profile.getEmail());
         //YOUR CODE HERE
         this.userService.login_google(
           '',
@@ -55,8 +73,11 @@ export class LoginComponent implements OnInit {
         )
 
       }, (error) => {
+        console.log(error)
         alert(JSON.stringify(error, undefined, 2));
       });
+    }
+
   }
 
   //------------ Fin Sign-In Google-------------------
@@ -93,11 +114,28 @@ export class LoginComponent implements OnInit {
         if (response.authResponse) {
  
           window['FB'].api('/me', {
-            fields: 'last_name, first_name, email'
+            fields: 'last_name, first_name, email, picture.width(150).height(150)'
           }, (userInfo) => {
  
             console.log("user information");
             console.log(userInfo);
+
+            let email = ''
+
+            if (!userInfo.email) {
+              email = userInfo.id + '@apanemigrante.cl'
+            } else {
+              email = userInfo.email
+            }
+
+            this.userService.login_facebook(
+              '', 
+              email, 
+              userInfo.picture.data.url, 
+              false, // google
+              true, // facebook
+              true, // estado
+              response.authResponse.accessToken)
           });
            
         } else {
@@ -107,6 +145,15 @@ export class LoginComponent implements OnInit {
 }
 
 // ----------- Fin login Facebook -------------------
+
+// ----------- Login Invitado -----------------------
+
+loginInvitado() {
+  
+  this.userService.login_invitado(false)
+}
+
+// ----------- Fin login Inivitado ------------------
 
   ngAfterViewInit(){
         this.googleInit();

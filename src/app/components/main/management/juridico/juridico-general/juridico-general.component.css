@@ -1,0 +1,16 @@
+#juridico-general {
+    height: 100vh !important;
+}
+
+#juridico-general #contenido {
+    height: 70vh !important;
+
+}
+
+@media only screen and (max-width: 991px) {
+
+    #juridico-general {
+        height: unset !important;
+    }
+
+}

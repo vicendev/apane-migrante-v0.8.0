@@ -1,7 +1,8 @@
-<div class="row animated fadeIn">
+<!-- Version PC -->
+<div class="row animated fadeIn" *ngIf="!mobileScreen">
   <div class="col-12">
 
-    <div class="row backCol-transparente">
+    <div class="row">
       <div class="col-12 mt-4">
         <h1 class="h-negro-sorry-30 pl-2">{{'label.contenido.titulo.juridico.identidad.carnet' | translate }}</h1>
       </div>
@@ -21,14 +22,61 @@
       <div class="col-12 mt-3 mb-2">
         <p class="p-negro-betm-25">{{'label.contenido.parrafo.dos.juridico.identidad.carnet' | translate}}</p>
         <p class="p-negro-betm-25">{{'label.contenido.parrafo.tres.juridico.identidad.carnet' | translate}}</p>
+        <p class="p-negro-betm-20">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.registrocivil.cl/principal/canal-tramites/cedula-de-identidad-para-chilenos">
+            {{'label.contenido.link.juridico.identidad.carnet' | translate}}
+          </a>
+        </p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-6 mt-5 ml-1">
-        <button class="btn btn-primary btn-block" (click)="navegarTramiteCarnet()" >{{'label.boton.iniciar.tramite' | translate}}</button>
+        <button [disabled]="!userEstado" class="btn btn-primary" (click)="navegarTramiteCarnet()" >{{'label.boton.iniciar.tramite' | translate}}</button>
       </div>
     </div>
     <br><br><br><br><br><br><br>
   </div>
 </div>
+<!-- Fin Version PC -->
+
+<!-- Version Mobil -->
+<div class="row animated fadeIn" *ngIf="mobileScreen">
+  <div class="col-12">
+
+    <div class="row">
+      <div class="col-12 mt-2">
+        <h1 class="h-negro-sorry-25 pl-2">{{'label.contenido.titulo.juridico.identidad.carnet' | translate }}</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <p class="p-naranjo-betm-20 pl-2">{{'label.contenido.parrafo.uno.juridico.identidad.carnet' | translate}}</p>
+        <ol class="p-naranjo-betm-20 ml-5">
+          <li>{{'label.contenido.lista.item.uno.juridico.identidad.carnet' | translate}}</li>
+          <li>{{'label.contenido.lista.item.dos.juridico.identidad.carnet' | translate}}</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="row backCol-box-blue-transparente m-1">
+      <div class="col-12 mt-3 mb-2">
+        <p class="p-negro-betm-20">{{'label.contenido.parrafo.dos.juridico.identidad.carnet' | translate}}</p>
+        <p class="p-negro-betm-20">{{'label.contenido.parrafo.tres.juridico.identidad.carnet' | translate}}</p>
+        <p class="p-negro-betm-20"><a target="_blank" rel="noopener noreferrer" href="https://www.registrocivil.cl/principal/canal-tramites/cedula-de-identidad-para-chilenos">
+            {{'label.contenido.link.juridico.identidad.carnet' | translate}}
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mt-3 mb-3 text-center">
+        <button [disabled]="!userEstado" class="btn btn-primary" (click)="navegarTramiteCarnet()" >{{'label.boton.iniciar.tramite' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fin Version Mobil -->

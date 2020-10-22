@@ -27,19 +27,6 @@
 
           <div class="row form-group" *ngIf="uploadImg">
             <div class="col-12">
-              <h6>Escoge un icono .png</h6>
-              <p-fileUpload mode="advanced" customUpload="true" 
-              accept=".png"
-              (uploadHandler)="onUploadIconHandler($event)"
-              (onRemove)="removeItem()" (onClear)="removeItem()"
-              chooseLabel="Escoger"
-              uploadLabel="Cargar"
-              cancelLabel="Cancelar"></p-fileUpload>
-            </div>
-          </div>
-
-          <div class="row form-group" *ngIf="uploadImg && uploadIcon">
-            <div class="col-12">
 
               <label for="menuID">Menu ID</label>
               <input type="text"

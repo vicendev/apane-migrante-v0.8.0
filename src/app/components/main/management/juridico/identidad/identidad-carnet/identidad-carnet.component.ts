@@ -3,6 +3,7 @@ import { TramiteCoreService } from '../../../../../../services/tramitecore.servi
 import { Subscription } from 'rxjs';
 import { TramiteCore } from '../../../../../../models/tramitecore';
 import { Router } from '@angular/router';
+import { UtilsService } from '../../../../../../services/utils.service';
 
 @Component({
   selector: 'app-identidad-carnet',
@@ -11,15 +12,24 @@ import { Router } from '@angular/router';
 })
 export class IdentidadCarnetComponent implements OnInit {
 
+  public mobileScreen: boolean;
+  public userEstado: boolean;
 
   private _tramiteCoreSub: Subscription;
 
   constructor(
     private _tramiteCoreService: TramiteCoreService,
-    private _router: Router
+    private _router: Router,
+    private _utils: UtilsService
   ) { }
 
   ngOnInit() {
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
+
+    let token = this._utils.obtenerDataUsuario();
+    let usuario = this._utils.desestructurarObjetoToken(token);
+
+    this.userEstado = usuario.estado
   }
 
   navegarTramiteCarnet() {

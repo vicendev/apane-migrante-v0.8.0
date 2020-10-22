@@ -23,6 +23,18 @@ import { RadioButtonModule } from 'primeng-lts/radiobutton';
 import { AccordionModule } from 'primeng-lts/accordion';
 import { CheckboxModule } from 'primeng-lts/checkbox';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+
+// Shared Components
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+import { SidebarComponent } from './components/shared/sidebar/sidebar.component';
 
 // Components  Errores HTTP
 import { NotFoundComponent } from './components/cod-http/not-found/not-found.component';
@@ -30,9 +42,6 @@ import { NotAvailableComponent } from './components/cod-http/not-available/not-a
 
 //Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -61,6 +70,7 @@ export function translateFactory(provider: TranslateService){
     HeaderComponent,
     FooterComponent,
     LoadingComponent,
+    SidebarComponent,
     HomeComponent,
     AboutComponent,
     LoginComponent,
@@ -97,7 +107,14 @@ export function translateFactory(provider: TranslateService){
     DropdownModule,
     RadioButtonModule,
     AccordionModule,
-    CheckboxModule
+    CheckboxModule,
+    // Angular Material
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatListModule,
+    MatRadioModule,
+    MatSlideToggleModule,
+    // Extras
   ],
   providers: [
     TranslateService,

@@ -117,6 +117,7 @@ app.post('', (req, res ) => {
             tramiteProgreso: tramiteProgresoDB
         });
     });
+
 });
 
 app.put('/:id', (req, res) => {
@@ -167,5 +168,26 @@ app.put('/:id', (req, res) => {
     });
     
 });
+
+app.delete('/byIdUser/:id', (req, res) => {
+
+    const ID = req.params.id;
+
+    TramiteProgreso.deleteOne( { userID: ID } )
+        .exec( (err, tramiteProgresos) => {
+
+            if ( err ) {
+                return res.status(500).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            res.json({
+                ok: true,
+                tramiteProgresos
+            });
+        });
+})
 
 module.exports = app;

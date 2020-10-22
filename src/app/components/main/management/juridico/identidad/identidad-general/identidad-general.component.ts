@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../../../../../services/utils.service';
 
 @Component({
   selector: 'app-identidad-general',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdentidadGeneralComponent implements OnInit {
 
-  constructor() { }
+  public mobileScreen: boolean;
+
+  constructor(
+    private _utils: UtilsService
+  ) { }
 
   ngOnInit() {
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
   }
 
 }

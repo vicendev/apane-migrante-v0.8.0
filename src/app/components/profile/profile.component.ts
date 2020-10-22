@@ -7,6 +7,7 @@ import { TranslateService } from '../../services/translate.service';
 
 import * as _ from 'lodash';
 import { UtilsService } from '../../services/utils.service';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,26 +16,30 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class ProfileComponent implements OnInit {
 
+  public mobileScreen: boolean;
+
   public usuario: any;
   public items: MenuItem[];
   public key: string;
 
   private _token: any;
-  private _perfilMenu: PerfilMenu[];
+  public perfilMenu: PerfilMenu[];
 
   private _perfilMenuSub: Subscription;
 
   constructor(
     private _perfilMenuService: PerfilMenuService,
     private _translateService: TranslateService,
-    private _utils: UtilsService
-
+    private _utils: UtilsService,
+    private sidebarService: SidebarService
   ) {
     this.items = [];
     this.key = 'PROFILE.ACTIVITY';
    }
 
   ngOnInit() {
+
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
 
     this._token = this._utils.obtenerDataUsuario();
     this.usuario = this._utils.desestructurarObjetoToken(this._token);
@@ -53,36 +58,24 @@ export class ProfileComponent implements OnInit {
     this.usuario = { _id, email, nombre, img };
   }
 
+  abrirsidebar(id: string) {
+    this.sidebarService.open(id)
+  }
+
   cargarData() {
 
     this._perfilMenuService.getPerfilMenu();
     this._perfilMenuSub = this._perfilMenuService.getPerfilMenuUpdateListener()
       .subscribe( (perfilMenu: PerfilMenu[]) => {
 
-        this.cargarMenu(perfilMenu);
+        this.perfilMenu = [];
+        this.perfilMenu = perfilMenu;
         
       })
   }
 
-  cargarMenu(menu: PerfilMenu[]) {
-
-    this.items = [];
-    this._perfilMenu = menu;
-
-    _.forEach(this._perfilMenu, data => {
-
-      let titulo = this._translateService.getTranslate(data.titulo);
-
-      this.items.push({
-        items: [{
-          label: titulo, 
-          id: data.id,
-          command:( () => {
-            console.log('Cambiar vista contenido', data.id)
-          }),
-        }]
-      })
-    })
+  eventoMenu(menu: PerfilMenu[]) {
+    console.log('Carga contenido')
   }
 
 

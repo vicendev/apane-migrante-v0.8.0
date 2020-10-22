@@ -19,6 +19,7 @@ import { ContenidoService } from '../../services/contenido.service';
 import { Contenido } from '../../models/contenido';
 
 import Swal from 'sweetalert2'
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-main',
@@ -29,16 +30,20 @@ export class MainComponent implements OnInit {
 
   @ViewChild('dataJuridico', {static: false}) dataJuridico: JuridicoComponent;
 
+  public mobileScreen: boolean;
+
   public tramite: Tramite;
   public cabeceraMenu: CabeceraMenu;
   public items: MenuItem[];
   public menuID: string;
+  public menuIDAnterior: string[];
 
-  private _tramiteMenu: TramiteMenu[];
+  public tramiteMenu: TramiteMenu[];
 
   private _tramiteSub: Subscription;
   private _tramiteMenuSub: Subscription;
-  private _firstTramiteMenu: Subscription;
+  private _tramiteMenuAnteriorSub: Subscription;
+  private _firstTramiteMenuSub: Subscription;
   private _cabeceraMenuSub: Subscription;
   private _contenidoSub: Subscription;
 
@@ -49,17 +54,21 @@ export class MainComponent implements OnInit {
     private _cabeceraMenuService: CabeceraMenuService,
     private _contenidoService: ContenidoService,
     private _translateService: TranslateService,
+    private _utils: UtilsService,
     private _router: Router
   ) {
     this.tramite = <ITramite> {};
     this.items = [];
     this.cabeceraMenu = <ICabeceraMenu> {};
     this.menuID = '';
+    this.menuIDAnterior = [];
    }
 
   ngOnInit() {
 
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
     this.obtenerTramiteByKey();
+
   }
 
   /**
@@ -75,6 +84,8 @@ export class MainComponent implements OnInit {
       this._tramiteSub = this._tramiteService.getTramiteByKeyUpdateListener()
         .subscribe(( tramite: Tramite ) => {
           this.tramite = tramite[0];
+          this.menuIDAnterior[0] = this.tramite.id;
+          this.menuIDAnterior[1] = this.tramite.id;
           this.obtenerMenu(this.tramite.id);
           this.obtenerCabeceraMenu(this.tramite.id);
         });
@@ -95,46 +106,38 @@ export class MainComponent implements OnInit {
     this._tramiteMenuService.getTramiteMenuByMenuID(menuID);
     this._tramiteMenuSub = this._tramiteMenuService.getTramiteMenuByMenuIDListener()
       .subscribe(( tramiteMenu: TramiteMenu[] ) => {
-        this.items = [];
-        this._tramiteMenu = tramiteMenu;
-        
-        _.forEach( this._tramiteMenu, data => {
-          let titulo = this._translateService.getTranslate(data.titulo);
+        this.tramiteMenu = [];
+        this.tramiteMenu = tramiteMenu;
+        this.menuIDAnterior[1] = this.tramiteMenu[0].menuID;  
 
-          this.items.push({
-            items: [{
-              label: titulo, 
-              id: data.id,
-              command:( () => {
-                if (data.submenu) {
-                  
-                  this._tramiteMenuSub.unsubscribe();
-                  this._cabeceraMenuSub.unsubscribe();
-                  this.obtenerCabeceraMenu(data.id);
-                  this.obtenerMenu(data.id)
-                  
-                  if ( this._contenidoSub ) {
-                      this._contenidoSub.unsubscribe();
-                      this.cambiarVistaContenido(data.id, data.submenu);
-                  } else {
-                    this.cambiarVistaContenido(data.id, data.submenu);
-                  }
-                  
-                 } else { 
-
-                    if (this._contenidoSub) {
-                      this._contenidoSub.unsubscribe()
-                      this.cambiarVistaContenido(data.id, data.submenu);
-                    } else {
-                      this.cambiarVistaContenido(data.id, data.submenu);               
-                    }
-                 }
-              }) 
-            }]
-          })
-        });
-       
       })
+  }
+
+  eventoMenu(idMenu: string, submMenu: boolean) {
+
+    if (submMenu) {
+                  
+      this._tramiteMenuSub.unsubscribe();
+      this._cabeceraMenuSub.unsubscribe();
+      this.obtenerCabeceraMenu(idMenu);
+      this.obtenerMenu(idMenu)
+      
+      if ( this._contenidoSub ) {
+          this._contenidoSub.unsubscribe();
+          this.cambiarVistaContenido(idMenu, submMenu);
+      } else {
+        this.cambiarVistaContenido(idMenu, submMenu);
+      }
+      
+     } else { 
+
+        if (this._contenidoSub) {
+          this._contenidoSub.unsubscribe()
+          this.cambiarVistaContenido(idMenu, submMenu);
+        } else {
+          this.cambiarVistaContenido(idMenu, submMenu);               
+        }
+     }
   }
 
   obtenerCabeceraMenu(menuID: string) {
@@ -142,7 +145,6 @@ export class MainComponent implements OnInit {
     this._cabeceraMenuService.getCabeceraMenuByMenuID(menuID);
     this._cabeceraMenuSub = this._cabeceraMenuService.getCabeceraMenuByMenuIDUpdateListener()
       .subscribe(( cabeceraMenu: CabeceraMenu ) => {
-        console.log(cabeceraMenu)
         this.cabeceraMenu = cabeceraMenu[0];
         this.cabeceraMenu.titulo = this._translateService.getTranslate(cabeceraMenu[0].titulo);
       })
@@ -152,12 +154,12 @@ export class MainComponent implements OnInit {
 
     if (flagSubMenu) {
 
-      if (this._firstTramiteMenu) {
-        this._firstTramiteMenu.unsubscribe();
+      if (this._firstTramiteMenuSub) {
+        this._firstTramiteMenuSub.unsubscribe();
       }
      
       this._tramiteMenuService.getFirstTramiteMenuByMenuID(menuID);
-      this._firstTramiteMenu = this._tramiteMenuService.getFirstTramiteMenuByMenuIDListener()
+      this._firstTramiteMenuSub = this._tramiteMenuService.getFirstTramiteMenuByMenuIDListener()
         .subscribe( (tramiteMenu: TramiteMenu) => {
           
           this._contenidoService.getContenidoByMenuID(tramiteMenu.id)
@@ -184,7 +186,38 @@ export class MainComponent implements OnInit {
 
     }
 
-   
+  }
+
+  /**
+   * Cambia la lista por el menú anterior
+   * [0] = id Menu inicial, se carga al iniciar pantalla
+   * [1] = id Menu actual
+   * con [1] se obtiene el menu padre y asi poder cambiar de menú
+   */
+  menuAnterior() {
+
+    
+    if (this.menuIDAnterior[0] != this.menuIDAnterior[1]) {
+
+      if (this._tramiteMenuAnteriorSub) {
+        this._tramiteMenuAnteriorSub.unsubscribe()
+
+        this._tramiteMenuService.getTramiteMenuByID(this.menuIDAnterior[1])
+        this._tramiteMenuAnteriorSub = this._tramiteMenuService.getTramiteMenuByIDListener()
+          .subscribe( ( tramiteMenu: TramiteMenu) => {
+              this.eventoMenu(tramiteMenu[0].menuID, true);
+        })
+      } else {
+        this._tramiteMenuService.getTramiteMenuByID(this.menuIDAnterior[1])
+        this._tramiteMenuAnteriorSub = this._tramiteMenuService.getTramiteMenuByIDListener()
+          .subscribe( ( tramiteMenu: TramiteMenu) => {
+              this.eventoMenu(tramiteMenu[0].menuID, true);
+        })
+      }
+
+    } else {
+      return;
+    }
   }
   
   alertEspacioEnConstruccion() {
@@ -196,6 +229,14 @@ export class MainComponent implements OnInit {
       imageHeight: 200,
       imageAlt: 'espacio en construcción',
     })
+  }
+
+  abrirsidebar(id: string) {
+    this._utils.abrirSideBarMenu(id);
+  }
+
+  cerrarsidebar(id: string) {
+    this._utils.cerrarSideBarMenu(id);
   }
 
   ngOnDestroy() {
@@ -211,8 +252,8 @@ export class MainComponent implements OnInit {
       this._cabeceraMenuSub.unsubscribe();
     }
 
-    if (this._firstTramiteMenu) {
-      this._firstTramiteMenu.unsubscribe
+    if (this._firstTramiteMenuSub) {
+      this._firstTramiteMenuSub.unsubscribe
     }
   }
 

@@ -12,12 +12,10 @@ let tramiteProgresoSchema = new Schema({
     
     tramiteCoreID: {
         type: String,
-        unique: true,
         required: [true, 'El tramite core ID es requerido']
     },
     userID: {
         type: String,
-        unique: true,
         required: [true, 'El user ID es requerido']
     },
     estado: {

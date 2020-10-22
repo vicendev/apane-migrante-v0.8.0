@@ -1,7 +1,7 @@
-<div class="row animated fadeIn" id="profile-activity">
+<div class="row h-100 animated fadeIn" id="profile-activity" *ngIf="!mobileScreen">
   <div class="col-12">
 
-    <div class="row pt-3 pl-1">
+    <div class="row pt-4 pl-1">
       <div class="col-12">
         <h1 class="h-blanca-sorry-40">{{'label.perfil.menu.actividad' | translate}}</h1>
       </div>
@@ -12,32 +12,74 @@
         <p class="p-ama-claro-betm-25">
           {{'label.perfil.contenido.actividad.parrafo.uno' | translate}}
         </p>
-        <p class="p-ama-claro-betm-25 mt-5 pt-5">
+        <p class="p-ama-claro-betm-25 mt-4 pt-5">
           {{'label.perfil.contenido.actividad.parrafo.dos' | translate}}
         </p>
       </div>
     </div>
 
-    <div class="row mt-5 mr-5 ml-5 text-center">
+    <div class="row m-5 text-center">
       <div class="col-4">
         <button class="btn btn-alto-naranjo">
           <img class="tam-icono" src="assets/img/png/tramite-consultado.png" alt="">
           <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.consultados' | translate }}</p>
-          <h1 class="h-negro-betm-100">{{tramiteProgreso_CONSULTADO.length}}</h1></button>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_CONSULTADO ? tramiteProgreso_CONSULTADO.length : 0}}</h1></button>
       </div>
       <div class="col-4">
         <button class="btn btn-alto-ama-claro">
           <img class="tam-icono" src="assets/img/png/tramite-proceso.png" alt="">
           <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.curso' | translate }}</p>
-          <h1 class="h-negro-betm-100">{{tramiteProgreso_PROCESO.length}}</h1></button>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_PROCESO ? tramiteProgreso_PROCESO.length : 0}}</h1></button>
       </div>
       <div class="col-4">
         <button class="btn btn-alto-naranjo">
           <img class="tam-icono" src="assets/img/png/tramite-finalizado.png" alt="">
           <p class="p-negro-betm-20-bold">{{ 'label.perfil.contenido.actividad.boton.finalizados' | translate }}</p>
-          <h1 class="h-negro-betm-100">{{tramiteProgreso_FINALIZADO.length}}</h1></button>
+          <h1 class="h-negro-betm-100">{{tramiteProgreso_FINALIZADO ? tramiteProgreso_FINALIZADO.length : 0}}</h1></button>
       </div>
     </div>
+
+  </div>
+</div>
+
+<div class="row h-100 animated fadeIn" id="profile-activity" *ngIf="mobileScreen">
+  <div class="col-12">
+
+    <div class="row">
+      <div class="col-12">
+        <h1 class="p-blanca-betm-25 text-center">{{'label.perfil.menu.actividad' | translate}}</h1>
+      </div>
+    </div>
+
+    <div class="row ml-1 mr-1">
+      <div class="col-12 backCol-box-blue-transparente pt-2">
+        <p class="p-ama-claro-betm-20">
+          {{'label.perfil.contenido.actividad.parrafo.uno' | translate}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row mt-5 mb-5 text-center">
+      <div class="col-4">
+        <button class="btn btn-alto-naranjo">
+          <img class="tam-icono" src="assets/img/png/tramite-consultado.png" alt="">
+          <p class="p-negro-betm-15-bold pt-2">{{ 'label.perfil.contenido.actividad.boton.consultados' | translate }}</p>
+          <h1 class="h-negro-betm-40">{{tramiteProgreso_CONSULTADO ? tramiteProgreso_CONSULTADO.length : 0}}</h1></button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-alto-ama-claro">
+          <img class="tam-icono" src="assets/img/png/tramite-proceso.png" alt="">
+          <p class="p-negro-betm-15-bold pt-2">{{ 'label.perfil.contenido.actividad.boton.curso' | translate }}</p>
+          <h1 class="h-negro-betm-40">{{tramiteProgreso_PROCESO ? tramiteProgreso_PROCESO.length : 0}}</h1></button>
+      </div>
+      <div class="col-4">
+        <button class="btn btn-alto-naranjo">
+          <img class="tam-icono" src="assets/img/png/tramite-finalizado.png" alt="">
+          <p class="p-negro-betm-15-bold pt-2">{{ 'label.perfil.contenido.actividad.boton.finalizados' | translate }}</p>
+          <h1 class="h-negro-betm-40">{{tramiteProgreso_FINALIZADO ? tramiteProgreso_FINALIZADO.length : 0}}</h1></button>
+      </div>
+    </div>
+
 
   </div>
 </div>

@@ -1,5 +1,5 @@
 #loading {
-    height: 100%;
+    height: 100vh !important;
     background-color: #491311;
 }
 
@@ -7,9 +7,49 @@
     background-image: url('../../../../assets/img/jpg/loading.jpg');
     background-repeat: no-repeat;
     background-position: 50% 0%;
+    background-size: 75%;
 }
 
 .img-border {
+    width: 180px;
     border-radius: 100%;
     border: 2px solid #F4EF9A;
+    margin-top: 29.5%;
+}
+
+
+@media only screen and (max-width: 991px) {
+
+    #loading {
+        height: 100vh !important;
+    }
+
+    #loading, .img-fondo {
+        background-image: none;
+        background-repeat: unset;
+        background-position: unset;
+        background-size: unset;
+    }
+
+    .img-border {
+        width: 180px;
+        border-radius: 100%;
+        border: 10px solid #F4EF9A;
+        margin-top: 65%;
+    }
+}
+
+@media only screen and (max-height: 450px) {
+ 
+    #loading {
+        height: unset !important;
+    }
+
+    .img-border {
+        width: 180px;
+        border-radius: 100%;
+        border: 10px solid #F4EF9A;
+        margin-top: 13%;
+        margin-bottom: 10%;
+    }
 }

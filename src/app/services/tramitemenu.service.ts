@@ -18,6 +18,9 @@ export class TramiteMenuService {
   private _firstTramiteMenuByMenuID: TramiteMenu;
   private _firstTramiteMenuByMenuIDUpdated = new Subject<TramiteMenu>();
 
+  private _tramiteMenuByID: TramiteMenu;
+  private _tramiteMenuByIDUpdated = new Subject<TramiteMenu>();
+
   constructor(
     private http: HttpClient
   ) {
@@ -89,8 +92,44 @@ export class TramiteMenuService {
   /**
   * Retorna un observable de la información obtenida desde getFirstTramiteMenuByMenuID
   */
- getFirstTramiteMenuByMenuIDListener() {
-  return this._firstTramiteMenuByMenuIDUpdated.asObservable();
-}
+  getFirstTramiteMenuByMenuIDListener() {
+    return this._firstTramiteMenuByMenuIDUpdated.asObservable();
+  }
+
+  /**
+  * Obtiene primer item de Menu segun el ID
+  * @param id ID privado del objeto
+  */
+  getTramiteMenuByID(id: string) {
+
+    this.http
+      .get< {message: string, tramiteMenu: any} >(`${BACKEND_URL}/privateID/${id}`)
+      .pipe(
+        map(tramiteMenuData => {
+          return tramiteMenuData.tramiteMenu.map(data => {
+            return {
+              id: data._id,
+              titulo: data.titulo,
+              menuID: data.menuID,
+              submenu: data.submenu,
+              fechaCreacion: data.fechaCreacion,
+              fechaActualizacion: data.fechaActualizacion
+            };
+          });
+        })
+      )
+      .subscribe( transformedTramiteMenu => {
+        this._tramiteMenuByID = transformedTramiteMenu;
+        this._tramiteMenuByIDUpdated.next(this._tramiteMenuByID);
+      })
+  }
+
+  /**
+  * Retorna un observable de la información obtenida desde getTramiteMenuByID
+  */
+  getTramiteMenuByIDListener() {
+    return this._tramiteMenuByIDUpdated.asObservable();
+  }
+
 
 }

@@ -88,7 +88,6 @@ app.post('', multer({storage: storage}).any(), (req, res ) => {
         menuID: body.menuID,
         //imgPath: `${url}/images/cabeceramenu/${req.file.filename}`,
         imgPath: url + '/images/cabeceramenu/' + req.files[0].filename,
-        iconPath: url + '/images/cabeceramenu/' + req.files[1].filename,
         fechaCreacion: new Date().toLocaleString(),
         fechaActualizacion: new Date().toLocaleString()
     });

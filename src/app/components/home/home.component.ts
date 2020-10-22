@@ -11,6 +11,8 @@ import { UtilsService } from '../../services/utils.service';
 })
 export class HomeComponent implements OnInit {
 
+  public mobileScreen: boolean;
+
   public userIsAuthenticated = false;
   public loadingPage: boolean;
   private authListenerSubs: Subscription;
@@ -27,6 +29,8 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    this.mobileScreen = this._utils.obtenerPantallaMobil();
 
     this.obtenerUsuarioAutenticado();
 
@@ -51,6 +55,10 @@ export class HomeComponent implements OnInit {
     .subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
     });
+  }
+
+  redirectAppNoDisponible() {
+    this._router.navigate(['/not-available']);
   }
 
   /**

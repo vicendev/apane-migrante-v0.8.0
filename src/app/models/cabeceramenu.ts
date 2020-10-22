@@ -27,10 +27,6 @@ export class CabeceraMenu implements ICabeceraMenu{
         return _.get(this, 'data.imgPath');
     }
 
-    get iconPath(): string {
-        return _.get(this, 'data.iconPath');
-    }
-
     get fechaCreacion(): string {
         return _.get(this, 'data.fechaCreacion');
     }

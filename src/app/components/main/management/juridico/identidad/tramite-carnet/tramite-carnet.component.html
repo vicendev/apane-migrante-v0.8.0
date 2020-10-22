@@ -1,18 +1,16 @@
-<div class="row mt-5" id="tramite-carnet">
+<!-- Version PC -->
+<div class="row mt-5 no-gutters" id="tramite-carnet" *ngIf="!mobileScreen && !loadingPage">
   <div class="col-12">
 
-    <div class="row">
+    <div class="row h-100">
       <!-- Linea vertical de progreso -->
       <div class="col-2 mt-5">
-        <div class="circle">
+        <div #circle class="circle">
           <p class="text-center font-position">{{dataProgreso.fase}}</p>
         </div>
-          <!-- <div class="linea-vertical-top"></div>
-          <div class="circulo-contador"><p class="text-center">{{dataProgreso.fase}}</p></div>
-          <div class="linea-vertical-bottom"></div> -->
       </div>
 
-      <div class="col-8 backCol-normal" id="main-tramite-carnet">
+      <div class="col-8 backCol-normal" #main id="main-tramite-carnet">
 
         <div class="row mt-5">
           <div class="col-12">
@@ -20,7 +18,7 @@
           </div>
         </div>
 
-        <div class="row ml-3 mr-1 backCol-ama-claro-radius">
+        <div class="row ml-4 mr-4 backCol-ama-claro-radius">
           <div class="col-12">
             <h1 class="text-right pr-5 pt-2 p-cafe-betm-30 animated fadeIn ">{{dataProgreso.titulo}}</h1>
           </div>
@@ -33,17 +31,24 @@
             <div class="row">
               <div class="col-12">
                 <h3>{{'label.tramite.core.carnet.fase.uno.titulo' | translate}}</h3>
-                <h5>{{'label.tramite.core.carnet.fase.uno.parrafo' | translate}}</h5>
-                <p-radioButton name="faseuno" value="{{radioOpts.opt1}}" label="{{'label.tramite.core.carnet.fase.uno.radio.uno' | translate}}" [(ngModel)]="radioValue"></p-radioButton><br>
-                <p-radioButton name="faseuno" value="{{radioOpts.opt2}}" label="{{'label.tramite.core.carnet.fase.uno.radio.dos' | translate}}" [(ngModel)]="radioValue"></p-radioButton><br>
-                <p-radioButton name="faseuno" value="{{radioOpts.opt3}}" label="{{'label.tramite.core.carnet.fase.uno.radio.tres' | translate}}" [(ngModel)]="radioValue"></p-radioButton><br>
-                <p-radioButton name="faseuno" value="{{radioOpts.opt4}}" label="{{'label.tramite.core.carnet.fase.uno.radio.cuatro' | translate}}" [(ngModel)]="radioValue"></p-radioButton><br>
-                <button
-                  [disabled]=" radioValue ? false : true" 
-                  class="btn btn-primary btn-block mt-5 mb-5" 
-                  (click)="siguiente(radioValue)"
-                >Siguiente
-                </button>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.uno.parrafo' | translate}}</h5>
+
+                <mat-radio-group>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt1}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.uno' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt2}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.dos' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt3}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.tres' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt4}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.cuatro' | translate}}</mat-radio-button>
+                </mat-radio-group>
+
+                <div class="text-center">
+                  <button
+                    [disabled]=" radioValue ? false : true" 
+                    class="btn btn-primary mt-5 mb-5" 
+                    (click)="siguiente(radioValue)"
+                  >{{'label.boton.siguiente' | translate}}
+                  </button>
+                </div>
+
               </div>
             </div>
 
@@ -58,38 +63,37 @@
             <div class="row animated slideShow">
               <div class="col-12">
                 <h3>{{'label.tramite.core.carnet.fase.dos.titulo' | translate}}</h3>
-                <h5>{{'label.tramite.core.carnet.fase.dos.parrafo' | translate}}</h5>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.dos.parrafo' | translate}}</h5>
                 
                 <!-- Opciones Primera solicitud de Cedula -->
                 <div class="row" *ngIf="radioValue === radioOpts.opt1">
                   <div class="col-12">
-                    <p-checkbox
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.uno.check.uno'| translate}}" 
+                    <mat-checkbox
                       #check_1
                       name="check_1" 
-                      (onChange)="faseDosCheckBoxHandler(check_1)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_1)"
                       [disabled]="checkDisabled.disCheck_1" 
                       [(ngModel)]="checkValues.check_1"
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.uno.check.dos'| translate}}"  
+                    >{{'label.tramite.core.carnet.fase.dos.opt.uno.check.uno'| translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox
                       #check_2
                       name="check_2"
-                      (onChange)="faseDosCheckBoxHandler(check_2)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_2)"
                       [disabled]="checkDisabled.disCheck_2" 
                       [(ngModel)]="checkValues.check_2"
-                    >
-                    </p-checkbox>
+                    >{{'label.tramite.core.carnet.fase.dos.opt.uno.check.dos'| translate}}
+                    </mat-checkbox>
 
-                    <button 
-                      [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
-                      class="btn btn-primary btn-block mt-5 mb-5" 
-                      (click)="siguiente()"
-                    >Siguiente
-                    </button>
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
                   </div>
                 </div>
                 <!-- Fin Opciones Primera solicitud de Cedula -->
@@ -97,54 +101,48 @@
                 <!-- Opciones Visa temporaria -->
                 <div class="row" *ngIf="radioValue === radioOpts.opt2">
                   <div class="col-12">
-                    <p-checkbox
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.dos.check.uno' | translate}}"
+                    <mat-checkbox
                       #check_1
                       name="check_1" 
-                      (onChange)="faseDosCheckBoxHandler(check_1)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_1)"
                       [disabled]="checkDisabled.disCheck_1" 
                       [(ngModel)]="checkValues.check_1"
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.dos.check.dos' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                       #check_2
                       name="check_2" 
-                      (onChange)="faseDosCheckBoxHandler(check_2)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_2)"                      
                       [disabled]="checkDisabled.disCheck_2" 
                       [(ngModel)]="checkValues.check_2" 
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.dos.check.tres' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.dos' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                       #check_3
                       name="check_3" 
-                      (onChange)="faseDosCheckBoxHandler(check_3)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_3)"                      
                       [disabled]="checkDisabled.disCheck_3" 
                       [(ngModel)]="checkValues.check_3" 
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.dos.check.cuatro' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.tres' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                       #check_4
                       name="check_4" 
-                      (onChange)="faseDosCheckBoxHandler(check_4)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_4)"                      
                       [disabled]="checkDisabled.disCheck_4" 
                       [(ngModel)]="checkValues.check_4" 
-                    >
-                    </p-checkbox>
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.cuatro' | translate}}
+                    </mat-checkbox>
 
-                    <button 
-                      [disabled]=" (checkValues.check_1 && checkValues.check_2
-                      && checkValues.check_3 && checkValues.check_4) ? false : true" 
-                      class="btn btn-primary btn-block mt-5 mb-5" 
-                      (click)="siguiente()"
-                    >Siguiente
-                    </button>
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2
+                        && checkValues.check_3 && checkValues.check_4) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
 
                   </div>
                 </div>
@@ -153,44 +151,41 @@
                 <!-- Opciones Permanencia definitiva -->
                 <div class="row" *ngIf="radioValue === radioOpts.opt3">
                   <div class="col-12">
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.tres.check.uno' | translate}}"
+                    <mat-checkbox 
                       #check_1
                       name="check_1" 
-                      (onChange)="faseDosCheckBoxHandler(check_1)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_1)"                      
                       [disabled]="checkDisabled.disCheck_1" 
                       [(ngModel)]="checkValues.check_1"
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.tres.check.dos' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.tres.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                       #check_2
                       name="check_2" 
-                      (onChange)="faseDosCheckBoxHandler(check_2)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_2)"
                       [disabled]="checkDisabled.disCheck_2" 
                       [(ngModel)]="checkValues.check_2" 
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.tres.check.tres' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.tres.check.dos' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                       #check_3
                       name="check_3" 
-                      (onChange)="faseDosCheckBoxHandler(check_3)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_3)"                      
                       [disabled]="checkDisabled.disCheck_3" 
                       [(ngModel)]="checkValues.check_3" 
-                    >
-                    </p-checkbox><br>
+                    >{{'label.tramite.core.carnet.fase.dos.opt.tres.check.tres' | translate}}
+                    </mat-checkbox><br>
 
-                    <button 
-                      [disabled]=" (checkValues.check_1 && checkValues.check_2
-                      && checkValues.check_3) ? false : true" 
-                      class="btn btn-primary btn-block mt-5 mb-5" 
-                      (click)="siguiente()"
-                    >Siguiente
-                    </button>
+                    <div class="text-center">
+                      <button 
+                        [disabled]=" (checkValues.check_1 && checkValues.check_2
+                        && checkValues.check_3) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
                   </div>
                 </div>
                 <!-- Fin Opciones Permanencia definitiva -->
@@ -199,32 +194,32 @@
                 <div class="row"  *ngIf="radioValue === radioOpts.opt4">
                   <div class="col-12">
                     <p><b>{{'label.tramite.core.carnet.fase.dos.opt.cuatro.parrafo' | translate}}</b></p>
-                    <p-checkbox 
-                      label="{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.uno' | translate}}"
+                    <mat-checkbox 
                       #check_1
                       name="check_1" 
-                      (onChange)="faseDosCheckBoxHandler(check_1)"
-                      [binary]="true"
+                      (change)="faseDosCheckBoxHandler(check_1)"                      
                       [disabled]="checkDisabled.disCheck_1" 
                       [(ngModel)]="checkValues.check_1" 
-                    >
-                    </p-checkbox><br>
-                    <p-checkbox 
-                        label="{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.dos' | translate}}"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
                         #check_2
                         name="check_2" 
-                        (onChange)="faseDosCheckBoxHandler(check_2)"
-                        [binary]="true"
+                        (change)="faseDosCheckBoxHandler(check_2)"                        
                         [disabled]="checkDisabled.disCheck_2" 
                         [(ngModel)]="checkValues.check_2" 
-                      >
-                    </p-checkbox>
-                    <button 
-                      [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
-                      class="btn btn-primary btn-block mt-5 mb-5" 
-                      (click)="siguiente()"
-                    >Siguiente
-                    </button>
+                      >{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.dos' | translate}}
+                    </mat-checkbox>
+
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
                   </div>
                 </div>
                 <!-- Fin Opciones Primera Visa dependiente -->
@@ -243,52 +238,77 @@
             <div class="row animated slideShow">
               <div class="col-12">
                 <h3>{{'label.tramite.core.carnet.fase.tres.titulo' | translate}}</h3>
-                <h5>{{'label.tramite.core.carnet.fase.tres.parrafo' | translate}}</h5>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.tres.parrafo' | translate}}</h5>
                 <hr>
-                <p-accordion>
-                  <p-accordionTab 
-                    id="tabAccordion_1"
-                    header="{{'label.tramite.core.carnet.fase.tres.panel.uno.header' | translate}}">
-                      <ul>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.uno' | translate}} <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">www.registrocivil.cl</a></li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.dos'| translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.tres' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro' | translate}}
-                          <p class="text-danger">{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro.destacado' | translate}}</p>
-                        </li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cinco' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.seis' | translate}}</li>
-                      </ul>
-                  </p-accordionTab>
-                  <p-accordionTab header="{{'label.tramite.core.carnet.fase.tres.panel.dos.header' | translate}}">
-                      <ul>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.uno' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.dos' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.tres' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cuatro' | translate}}</li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cinco' | translate}}</li>
-                      </ul>
-                  </p-accordionTab>
-                  <p-accordionTab header="{{'label.tramite.core.carnet.fase.tres.panel.tres.header' | translate}}">
-                    <p>{{'label.tramite.core.carnet.fase.tres.panel.tres.parrafo.uno' | translate}}</p>
-                      <ul>
-                        <li>
-                          <b>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.uno' | translate}}</b>
-                          {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.uno' | translate}}
-                          <b>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.dos' | translate}}</b>
-                          {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.dos' | translate}}
-                        </li>
-                        <li>
-                          <b>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos.destacado.uno' | translate}}</b>
-                          {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos' | translate}}
-                        </li>
-                        <li>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.tres' | translate}}</li>
-                      </ul>
-                    <p>{{'label.tramite.core.carnet.fase.tres.panel.tres.parrafo.dos' | translate}}</p>   
-                  </p-accordionTab>
-                </p-accordion>
 
-                <button class="btn btn-primary btn-block mt-5 mb-5" (click)="siguiente()">Siguiente</button>
+                <mat-accordion>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.uno.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="pt-4">
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.uno' | translate}} <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">www.registrocivil.cl</a></li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.dos'| translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.tres' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro' | translate}}
+                        <p class="font-amarillo">{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro.destacado' | translate}}</p>
+                      </li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cinco' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.seis' | translate}}</li>
+                    </ul>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.dos.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="pt-4">
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.uno' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.dos' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.tres' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cuatro' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cinco' | translate}}</li>
+                    </ul>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p class="pt-4">{{'label.tramite.core.carnet.fase.tres.panel.tres.parrafo.uno' | translate}}</p>
+                    <ul class="pt-2">
+                      <li>
+                        <b class="link-modal" 
+                          (click)="verModalMensaje(
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.titulo',
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.mensaje.uno')">
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.uno' | translate}}</b><hr class="backCol-ama-claro">
+                        <b class="link-modal" 
+                          (click)="verModalMensaje(
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.titulo',
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.mensaje.dos')">
+                          {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.dos' | translate}}</b>
+                      </li>
+                      <li>
+                        <b>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos.destacado.uno' | translate}}</b>
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos' | translate}}
+                      </li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.tres' | translate}}</li>
+                    </ul>  
+                  </mat-expansion-panel>
+
+                </mat-accordion>
+
+                <div class="text-center">
+                  <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.siguiente' | translate}}</button>
+                </div>
 
               </div>
             </div>
@@ -304,8 +324,10 @@
             <div class="row">
               <div class="col-12">
                 <h3>{{'label.tramite.core.carnet.fase.cuatro.titulo' | translate}}</h3>
-                <h5>{{'label.tramite.core.carnet.fase.cuatro.parrafo' | translate}}</h5>
-                <button class="btn btn-primary btn-block mt-5 mb-5" (click)="siguiente()">Siguiente</button>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.cuatro.parrafo' | translate}}</h5>
+                <div class="text-center">
+                  <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.siguiente' | translate}}</button>
+                </div>
               </div>
             </div>
 
@@ -320,7 +342,7 @@
             <div class="row">
               <div class="col-12">
                 <h3>{{'label.tramite.core.carnet.fase.cinco.titulo' | translate}}</h3>
-                <h5>{{'label.tramite.core.carnet.fase.cinco.parrado' | translate}}</h5>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.cinco.parrado' | translate}}</h5>
                 <ul>
                   <li>{{'label.tramite.core.carnet.fase.cinco.lista.uno' | translate}}</li>
                   <li>{{'label.tramite.core.carnet.fase.cinco.lista.dos' | translate}}</li>
@@ -335,8 +357,9 @@
               </div>
             </div>
 
-            <button class="btn btn-primary btn-block mt-5 mb-5" (click)="siguiente()">Trámite Finalizado</button>
-
+            <div class="text-center">
+              <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.tramite.finalizado' | translate}}</button>
+            </div>
 
           </div>
         </div>
@@ -347,8 +370,386 @@
             <h3>ESPACIO EN CONSTRUCCION - ÁREA FINALIZADO</h3>
           </div>
         </div>
-
       </div>  
     </div>
+  </div>
+</div>
+<!-- Fin Version PC -->
+
+<!-- Version Mobil -->
+<div class="row mt-4 no-gutters" id="tramite-carnet" *ngIf="mobileScreen && !loadingPage">
+  <div class="col-12">
+
+    <div class="row h-100">
+
+      <div class="col-12 backCol-normal" #main id="main-tramite-carnet">
+
+        <div class="row mt-5">
+          <div class="col-12">
+            <p><ngb-progressbar type="primary" [value]="dataProgreso.progreso"><b>{{dataProgreso.fase}} de {{dataProgreso.numFases}}</b>...</ngb-progressbar></p>
+          </div>
+        </div>
+
+        <div class="row ml-4 mr-4 backCol-ama-claro-radius">
+          <div class="col-12">
+            <h1 class="text-right pr-5 pt-2 p-cafe-betm-30 animated fadeIn ">{{dataProgreso.titulo}}</h1>
+          </div>
+        </div>
+
+        <!-- Primer Paso -->
+        <div class="row m-4 backCol-box-blue-transparente animated fadeIn" *ngIf="dataProgreso.fase === 1">
+          <div class="col-12">
+        
+            <div class="row">
+              <div class="col-12">
+                <h3>{{'label.tramite.core.carnet.fase.uno.titulo' | translate}}</h3>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.uno.parrafo' | translate}}</h5>
+
+                <mat-radio-group>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt1}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.uno' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt2}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.dos' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt3}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.tres' | translate}}</mat-radio-button><br>
+                  <mat-radio-button name="radioBtn" ngDefaultControl value="{{radioOpts.opt4}}" [(ngModel)]="radioValue">{{'label.tramite.core.carnet.fase.uno.radio.cuatro' | translate}}</mat-radio-button>
+                </mat-radio-group>
+
+                <div class="text-center">
+                  <button
+                    [disabled]=" radioValue ? false : true" 
+                    class="btn btn-primary mt-5 mb-5" 
+                    (click)="siguiente(radioValue)"
+                  >{{'label.boton.siguiente' | translate}}
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Fin Primer Paso -->
+
+        <!-- Segundo Paso -->
+        <div class="row m-4 backCol-box-blue-transparente" *ngIf="dataProgreso.fase === 2">
+          <div class="col-12">
+        
+            <div class="row animated slideShow">
+              <div class="col-12">
+                <h3>{{'label.tramite.core.carnet.fase.dos.titulo' | translate}}</h3>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.dos.parrafo' | translate}}</h5>
+                
+                <!-- Opciones Primera solicitud de Cedula -->
+                <div class="row" *ngIf="radioValue === radioOpts.opt1">
+                  <div class="col-12">
+                    <mat-checkbox
+                      #check_1
+                      name="check_1" 
+                      (change)="faseDosCheckBoxHandler(check_1)"
+                      [disabled]="checkDisabled.disCheck_1" 
+                      [(ngModel)]="checkValues.check_1"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.uno.check.uno'| translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox
+                      #check_2
+                      name="check_2"
+                      (change)="faseDosCheckBoxHandler(check_2)"
+                      [disabled]="checkDisabled.disCheck_2" 
+                      [(ngModel)]="checkValues.check_2"
+                    >{{'label.tramite.core.carnet.fase.dos.opt.uno.check.dos'| translate}}
+                    </mat-checkbox>
+
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Fin Opciones Primera solicitud de Cedula -->
+
+                <!-- Opciones Visa temporaria -->
+                <div class="row" *ngIf="radioValue === radioOpts.opt2">
+                  <div class="col-12">
+                    <mat-checkbox
+                      #check_1
+                      name="check_1" 
+                      (change)="faseDosCheckBoxHandler(check_1)"
+                      [disabled]="checkDisabled.disCheck_1" 
+                      [(ngModel)]="checkValues.check_1"
+                    >{{'mobil.label.tramite.core.carnet.fase.dos.opt.dos.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                      #check_2
+                      name="check_2" 
+                      (change)="faseDosCheckBoxHandler(check_2)"                      
+                      [disabled]="checkDisabled.disCheck_2" 
+                      [(ngModel)]="checkValues.check_2" 
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.dos' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                      #check_3
+                      name="check_3" 
+                      (change)="faseDosCheckBoxHandler(check_3)"                      
+                      [disabled]="checkDisabled.disCheck_3" 
+                      [(ngModel)]="checkValues.check_3" 
+                    >{{'label.tramite.core.carnet.fase.dos.opt.dos.check.tres' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                      #check_4
+                      name="check_4" 
+                      (change)="faseDosCheckBoxHandler(check_4)"                      
+                      [disabled]="checkDisabled.disCheck_4" 
+                      [(ngModel)]="checkValues.check_4" 
+                    >{{'mobil.label.tramite.core.carnet.fase.dos.opt.dos.check.cuatro' | translate}}
+                    </mat-checkbox>
+
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2
+                        && checkValues.check_3 && checkValues.check_4) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Fin Opciones Visa temporaria -->
+
+                <!-- Opciones Permanencia definitiva -->
+                <div class="row" *ngIf="radioValue === radioOpts.opt3">
+                  <div class="col-12">
+                    <mat-checkbox 
+                      #check_1
+                      name="check_1" 
+                      (change)="faseDosCheckBoxHandler(check_1)"                      
+                      [disabled]="checkDisabled.disCheck_1" 
+                      [(ngModel)]="checkValues.check_1"
+                    >{{'mobil.label.tramite.core.carnet.fase.dos.opt.tres.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                      #check_2
+                      name="check_2" 
+                      (change)="faseDosCheckBoxHandler(check_2)"
+                      [disabled]="checkDisabled.disCheck_2" 
+                      [(ngModel)]="checkValues.check_2" 
+                    >{{'mobil.label.tramite.core.carnet.fase.dos.opt.tres.check.dos' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                      #check_3
+                      name="check_3" 
+                      (change)="faseDosCheckBoxHandler(check_3)"                      
+                      [disabled]="checkDisabled.disCheck_3" 
+                      [(ngModel)]="checkValues.check_3" 
+                    >{{'mobil.label.tramite.core.carnet.fase.dos.opt.tres.check.tres' | translate}}
+                    </mat-checkbox><br>
+
+                    <div class="text-center">
+                      <button 
+                        [disabled]=" (checkValues.check_1 && checkValues.check_2
+                        && checkValues.check_3) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Fin Opciones Permanencia definitiva -->
+                
+                <!-- Opciones Primera Visa dependiente -->
+                <div class="row"  *ngIf="radioValue === radioOpts.opt4">
+                  <div class="col-12">
+                    <p><b>{{'label.tramite.core.carnet.fase.dos.opt.cuatro.parrafo' | translate}}</b></p>
+                    <mat-checkbox 
+                      #check_1
+                      name="check_1" 
+                      (change)="faseDosCheckBoxHandler(check_1)"                      
+                      [disabled]="checkDisabled.disCheck_1" 
+                      [(ngModel)]="checkValues.check_1" 
+                    >{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.uno' | translate}}
+                    </mat-checkbox><br>
+                    <mat-checkbox 
+                        #check_2
+                        name="check_2" 
+                        (change)="faseDosCheckBoxHandler(check_2)"                        
+                        [disabled]="checkDisabled.disCheck_2" 
+                        [(ngModel)]="checkValues.check_2" 
+                      >{{'label.tramite.core.carnet.fase.dos.opt.cuatro.check.dos' | translate}}
+                    </mat-checkbox>
+
+                    <div class="text-center">
+                      <button 
+                        [disabled]="(checkValues.check_1 && checkValues.check_2) ? false : true" 
+                        class="btn btn-primary mt-5 mb-5" 
+                        (click)="siguiente()"
+                      >{{'label.boton.siguiente' | translate}}
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Fin Opciones Primera Visa dependiente -->
+
+              </div>  
+            </div>
+
+          </div>
+        </div>
+        <!-- Fin Segundo Paso -->
+
+        <!-- Tercer Paso -->
+        <div class="row m-4 backCol-box-blue-transparente" *ngIf="dataProgreso.fase === 3">
+          <div class="col-12">
+        
+            <div class="row animated slideShow">
+              <div class="col-12">
+                <h3>{{'label.tramite.core.carnet.fase.tres.titulo' | translate}}</h3>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.tres.parrafo' | translate}}</h5>
+                <hr>
+
+                <mat-accordion>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.uno.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="pt-4">
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.uno' | translate}} <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">www.registrocivil.cl</a></li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.dos'| translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.tres' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro' | translate}}
+                        <p class="font-amarillo">{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cuatro.destacado' | translate}}</p>
+                      </li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.cinco' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.uno.lista.seis' | translate}}</li>
+                    </ul>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.dos.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="pt-4">
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.uno' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.dos' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.tres' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cuatro' | translate}}</li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.dos.lista.cinco' | translate}}</li>
+                    </ul>
+                  </mat-expansion-panel>
+
+                  <mat-expansion-panel hideToggle>
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.header' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p class="pt-4">{{'label.tramite.core.carnet.fase.tres.panel.tres.parrafo.uno' | translate}}</p>
+                    <ul class="pt-4">
+                      <li>
+                        <b class="link-modal" 
+                          (click)="verModalMensaje(
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.titulo',
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.mensaje.uno')">
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.uno' | translate}}</b><hr class="backCol-ama-claro">
+                        <b class="link-modal" 
+                          (click)="verModalMensaje(
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.titulo',
+                            'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.modal.mensaje.dos')">
+                          {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.uno.destacado.dos' | translate}}</b>
+                      </li>
+                      <li>
+                        <b>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos.destacado.uno' | translate}}</b>
+                        {{'label.tramite.core.carnet.fase.tres.panel.tres.lista.dos' | translate}}
+                      </li>
+                      <li>{{'label.tramite.core.carnet.fase.tres.panel.tres.lista.tres' | translate}}</li>
+                    </ul>  
+                  </mat-expansion-panel>
+
+                </mat-accordion>
+
+                <div class="text-center">
+                  <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.siguiente' | translate}}</button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Fin Tercer Paso -->
+
+        <!-- Cuarto Paso -->
+        <div class="row m-4 backCol-box-blue-transparente" *ngIf="dataProgreso.fase === 4">
+          <div class="col-12 animated slideShow">
+        
+            <div class="row">
+              <div class="col-12">
+                <h3>{{'label.tramite.core.carnet.fase.cuatro.titulo' | translate}}</h3>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.cuatro.parrafo' | translate}}</h5>
+                <div class="text-center">
+                  <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.siguiente' | translate}}</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Fin Cuarto Paso -->
+
+        <!-- Quinto Paso -->
+        <div class="row m-4 backCol-box-blue-transparente" *ngIf="dataProgreso.fase === 5">
+          <div class="col-12 animated slideShow">
+        
+            <div class="row">
+              <div class="col-12">
+                <h3>{{'label.tramite.core.carnet.fase.cinco.titulo' | translate}}</h3>
+                <h5 class="pt-3">{{'label.tramite.core.carnet.fase.cinco.parrado' | translate}}</h5>
+                <ul id="lista-fase-cinco">
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.uno' | translate}}</li>
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.dos' | translate}}</li>
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.tres' | translate}}</li>
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.cuatro' | translate}}</li>
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.cinco' | translate}}</li>
+                  <li>{{'label.tramite.core.carnet.fase.cinco.lista.seis.uno' | translate}}
+                    <a href="https://www.registrocivil.cl/" target="_blank" rel="noopener noreferrer">www.registrocivil.cl</a>
+                    {{'label.tramite.core.carnet.fase.cinco.lista.seis.dos' | translate}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-primary mt-5 mb-5" (click)="siguiente()">{{'label.boton.tramite.finalizado' | translate}}</button>
+            </div>
+
+          </div>
+        </div>
+        <!-- Fin Quinto Paso -->
+
+        <div class="row m-4 backCol-box-blue-transparente"  *ngIf="dataProgreso.fase === 6">
+          <div class="col-12">
+            <h3>ESPACIO EN CONSTRUCCION - ÁREA FINALIZADO</h3>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<!-- Fin Version Mobil -->
+
+<div class="row" *ngIf="loadingPage">
+  <div class="col-12">
+    <app-loading></app-loading>
   </div>
 </div>

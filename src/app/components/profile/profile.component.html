@@ -1,24 +1,37 @@
-<div class="row" id="profile">
+<!-- Version PC -->
+<div class="row h-100 mt-5" id="profile" *ngIf="!mobileScreen">
   <div class="col-12">
 
-      <div class="row animated fadeIn">
+      <div class="row h-100 animated fadeIn">
         <div class="col-3 pb-5 backCol-transparente">
             
-          <div class="row mt-2 pt-2 text-center">
+          <div class="row mt-2 mt-4 text-center">
             <div class="col-12">
-              <img class="img-fluid rounded-circle" [src]="usuario.img" alt="">
+              <img class="img-fluid img-size rounded-circle" [src]="usuario.img" alt="">
             </div>
           </div>
 
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 pt-4 mb-2">
               <h4 class="text-center">{{usuario.nombre}}</h4>
             </div>
           </div>
+          <hr class="mt-5">
+          <div class="row mt-5">
 
-          <div class="row mt-5 pl-5 menu-padding">
-            <div class="col-12">
-              <p-menu styleClass="menucus" autoDisplay="false" [model]="items"></p-menu>
+            <div class="col-12" *ngFor="let menu of perfilMenu">
+
+              <div class="row">
+                <div class="col-12 mt-2">
+                  <button 
+                    type="button" 
+                    class="btn btn-menu btn-lg btn-block text-center"
+                    (click)="eventoMenu(menu.id)"
+                  >{{menu.titulo | translate}}
+                  </button>
+                </div>
+              </div>
+              
             </div>
           </div>
             
@@ -27,8 +40,55 @@
         <div class="col-9 backCol-normal" *ngIf="key === 'PROFILE.ACTIVITY'">
           <app-profile-activity></app-profile-activity>
         </div>
-
       </div>
+  </div>
+</div>
+<!-- Fin Version PC -->
+
+<!-- Version Mobil -->
+<div class="row h-100 mt-4 backCol-normal" id="profile" *ngIf="mobileScreen">
+  <div class="col-12">
+
+    <app-sidebar id="menu-perfil" [title]="'label.navbar.perfil' | translate">
+      <div class="row mt-2 text-center">
+        <div class="col-5 ml-3">
+          <img class="img-fluid img-size rounded-circle" [src]="usuario.img" alt="">
+        </div>
+        <div class="col-6 pt-4 mr-2">
+          <h4 class="text-center">{{usuario.nombre}}</h4>
+        </div>
+      </div>
+
+      <hr class="mt-5">
+      <div class="row mt-5">
+
+        <div class="col-12" *ngFor="let menu of perfilMenu">
+
+          <div class="row">
+            <div class="col-12 mt-2">
+              <button 
+                type="button" 
+                class="btn btn-menu btn-lg btn-block text-center"
+                (click)="eventoMenu(menu.id)"
+              >{{menu.titulo | translate}}
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+    </app-sidebar>
+
+    <!-- Contenido Principal-->
+    <div class="row">
+      <div class="col-12" *ngIf="key === 'PROFILE.ACTIVITY'">
+        <button class="btn btn-primary mt-5" (click)="abrirsidebar('menu-perfil')">Menú</button>
+        <app-profile-activity></app-profile-activity>
+      </div>
+    </div>
+
 
   </div>
 </div>
+<!-- Version Mobil -->

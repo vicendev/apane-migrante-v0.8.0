@@ -12,7 +12,6 @@ import { CabeceraMenuService } from '../../../services/cabeceramenu.service';
 export class AddContentComponent implements OnInit {
 
   public uploadImg: File;
-  public uploadIcon: File;
   public titulo: any;
   public menuID: any;
 
@@ -34,16 +33,9 @@ export class AddContentComponent implements OnInit {
     });
   }
 
-  onUploadIconHandler(event){
-
-    _.forEach(event.files, item => {
-      this.uploadIcon = item;
-    });
-  }
 
   removeItem(){
     this.uploadImg = null;
-    this.uploadIcon = null;
     this.titulo = '';
     this.menuID = '';
   }
@@ -53,7 +45,7 @@ export class AddContentComponent implements OnInit {
     let titulo = form.value.titulo;
     let menuID = form.value.menuID;
 
-    this._cabeceraMenuService.addCabeceraMenu(titulo, menuID, this.uploadImg, this.uploadIcon)
+    this._cabeceraMenuService.addCabeceraMenu(titulo, menuID, this.uploadImg)
 
   }
 

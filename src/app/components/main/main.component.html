@@ -1,99 +1,150 @@
-<div class="row mt-5 animated fadeIn fast" id="main">
+<!-- Version PC-->
+<div class="row h-100 mt-5 animated fadeIn fast" id="main" *ngIf="!mobileScreen">
   <div class="col-12">
 
-    <div class="row mt-2" *ngIf="tramite.key === 'JURIDICO'">
+    <div class="row mt-2">
       <div class="col-3 backCol-transparente">
         
-        <div class="row text-center">
+        <div class="row text-center mb-4">
           <div class="col-12">
             <img class="img-fluid img-border" [src]="cabeceraMenu.imgPath" alt="">
-            <h3 class="h-ama-claro-sorry-45-borde"><span><img class="img-fluid" style="width: 40px; height: auto;" [src]="cabeceraMenu.iconPath" alt="">&nbsp;</span>{{cabeceraMenu.titulo}}</h3>
+            <h3 class="h-ama-claro-sorry-45-borde text-center">{{cabeceraMenu.titulo}}</h3>
           </div>
         </div>
 
-        <div class="row menu-padding mt-2 pl-5 ">
-          <div class="col-12">
-            <p-menu styleClass="menucus" [model]="items" ></p-menu>
+        <div class="row" *ngIf="menuIDAnterior[0] != menuIDAnterior[1]">
+          <div class="col-12 p-negro-betm-20-bold text-cursor">
+            <button 
+              type="button" 
+              class="btn btn-primary btn-menu-atras" 
+              (click)="menuAnterior()"
+              >
+              <img class="img-fluid icon-flecha-menu-atras" src="assets/img/png/icon-flecha.png" />
+            </button>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-12" *ngFor="let menu of tramiteMenu">
+
+            <div class="row">
+              <div class="col-12 mb-2">
+                <button 
+                  type="button" 
+                  class="btn btn-menu btn-lg btn-block text-center"
+                  (click)="eventoMenu(menu.id, menu.submenu)"
+                >{{menu.titulo | translate}}
+                  <span *ngIf="menu.submenu">
+                    <img class="img-fluid icon-flecha-menu btn-menu-icon" src="assets/img/png/icon-flecha.png" />
+                  </span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
-      <div class="col-9 mt-2">
+
+      <div class="col-9 mt-2" *ngIf="tramite.key === 'JURIDICO'">
         <app-juridico #dataJuridico></app-juridico>
       </div>
-    </div>
 
-    <div class="row" *ngIf="tramite.key === 'LEGAL'">
-      <div class="col-12">
+      <!-- <div class="col-9 mt-2" *ngIf="tramite.key === 'LEGAL'">
         <app-not-available></app-not-available>
       </div>
-      <!-- <div class="col-3">
-        
-        <div class="row">
-          <div class="col-12">
-            IMAGEN
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-12">
-            MENU
-          </div>
-        </div>
-
-      </div>
-      <div class="col-9">
-        <app-legal></app-legal>
-      </div> -->
-    </div>
-
-    <div class="row" *ngIf="tramite.key === 'SOCIAL'">
-      <div class="col-12">
+      <div class="col-9 mt-2" *ngIf="tramite.key === 'SOCIAL'">
         <app-not-available></app-not-available>
       </div>
-      <!-- <div class="col-3">
-        
-        <div class="row">
-          <div class="col-12">
-            IMAGEN
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-12">
-            MENU
-          </div>
-        </div>
-
-      </div>
-      <div class="col-9">
-        <app-social></app-social>
-      </div> -->
-    </div>
-
-    <div class="row" *ngIf="tramite.key === 'CULTURAL'">
-      <div class="col-12">
+      <div class="col-9 mt-2" *ngIf="tramite.key === 'CULTURAL'">
         <app-not-available></app-not-available>
-      </div>
-      <!-- <div class="col-3">
-        
-        <div class="row">
-          <div class="col-12">
-            IMAGEN
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            MENU
-          </div>
-        </div>
-
-      </div>
-      <div class="col-9">
-        <app-cultural></app-cultural>
       </div> -->
+      
     </div>
 
   </div>
 </div>
+<!-- Fin Version PC-->
+
+<!-- Version Mobil -->
+<div class="row mt-5 h-100 animated fadeIn fast" id="main" *ngIf="mobileScreen">
+  <div class="col-12">
+
+    <app-sidebar id="menu-main" [title]="cabeceraMenu.titulo"> 
+
+      <div class="row" *ngIf="menuIDAnterior[0] != menuIDAnterior[1]">
+        <div class="col-12 p-negro-betm-20-bold text-cursor">
+          <button 
+            type="button" 
+            class="btn btn-primary btn-menu-atras" 
+            (click)="menuAnterior(); cerrarsidebar('menu-main')"
+            >
+            <img class="img-fluid icon-flecha-menu-atras" src="assets/img/png/icon-flecha.png" />
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-12" *ngFor="let menu of tramiteMenu">
+
+          <div class="row">
+            <div class="col-12 mb-2">
+              <button 
+                type="button" 
+                class="btn btn-menu btn-lg btn-block text-center"
+                (click)="eventoMenu(menu.id, menu.submenu); cerrarsidebar('menu-main')"
+              >{{menu.titulo | translate}}
+                <span *ngIf="menu.submenu">
+                  <img class="img-fluid icon-flecha-menu btn-menu-icon" src="assets/img/png/icon-flecha.png" />
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </app-sidebar>
+
+    <div class="row text-center sinpadding">
+      <div class="col-12">
+        <img class="img-fluid img-border" [src]="cabeceraMenu.imgPath" alt="">
+      </div>
+    </div>
+
+    <div class="row backCol-transparente">
+      <div class="col-12">
+        <h3 class="h-ama-claro-sorry-45-borde text-center pt-2">{{cabeceraMenu.titulo}}</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-primary mt-2" (click)="abrirsidebar('menu-main')">Menú</button>
+      </div>
+    </div>
+
+    <!-- Child Apps -->
+    <div class="col-12 mt-2" *ngIf="tramite.key === 'JURIDICO'">
+      <app-juridico #dataJuridico></app-juridico>
+    </div>
+
+    <!-- <div class="col-12 mt-2" *ngIf="tramite.key === 'LEGAL'">
+      <app-not-available></app-not-available>
+    </div>
+
+    <div class="col-12 mt-2" *ngIf="tramite.key === 'SOCIAL'">
+      <app-not-available></app-not-available>
+    </div>
+
+    <div class="col-12 mt-2" *ngIf="tramite.key === 'CULTURAL'">
+      <app-not-available></app-not-available>
+    </div> -->
+
+    <!-- Fin Child Apps -->
+
+  </div>
+</div>
+<!-- Fin Version Mobil-->

@@ -1,4 +1,4 @@
-<div class="row mt-5 animated fadeIn fast" id="login">
+<div class="row h-100 mt-5 animated fadeIn fast" id="login" *ngIf="!mobileScreen">
   <div class="col-12">
     
     <div class="row text-center">
@@ -9,9 +9,9 @@
       </div>
     </div>
 
-    <div class="row mr-1 ml-1">
+    <div class="row">
       <div class="col-12 text-center backCol-box-cafe-radius">
-        <p class="p-ama-claro-betm-25 pt-3">
+        <p class="p-ama-claro-betm-30 pt-3">
           {{'label.login.box.parrafo' | translate}}
         </p>
       </div>
@@ -19,6 +19,14 @@
 
     <div class="row img-background">
       <div class="col-12">
+
+        <div class="row mt-5 text-center">
+          <div class="col-md-6 m-auto ">
+              <button class="btn-login" (click)="loginInvitado()">
+                  <p class="pt-3 text-center"><i class="fa fa-heart pr-4" aria-hidden="true"></i>INVITADO</p>
+                </button>
+          </div>    
+        </div>
         
         <div class="row mt-5 text-center">
           <div class="col-md-6 m-auto ">
@@ -43,6 +51,64 @@
     </div>
 
 
+
+  </div>
+</div>
+
+<div class="row h-100 animated fadeIn fast" id="login" *ngIf="mobileScreen">
+  <div class="col-12">
+
+    <div class="row sinpadding">
+      <div class="col-12 text-center">
+        <img class="img-fluid dim-img" src="assets/img/jpg/registro.jpg" alt="">
+        <!-- <img class="img-fluid img-logo" src="assets/img/png/logo.png" alt=""> -->
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-12 text-center">
+        <p class="p-blanca-betm-20">{{'mobil.label.login.titulo' | translate}}</p>
+        <p class="p-blanca-betm-20">{{'label.apane.migrante' | translate}}</p>
+      </div>
+    </div>
+
+    <div class="row backCol-box-cafe-transparente-radius mt-4">
+      <div class="col-12 text-center pt-3">
+        <p class="p-blanca-betm-20">{{'mobil.label.login.box.parrafo' | translate}}</p>
+      </div>
+    </div>
+
+    <div class="row no-gutters mb-4">
+      <div class="col-12 text-center">
+
+        <div class="row mt-4 text-center">
+          <div class="col-12">
+              <button class="btn-login" (click)="loginInvitado()">
+                  <p class="text-center"><i class="fa fa-heart pr-4" aria-hidden="true"></i>INVITADO</p>
+                </button>
+          </div>    
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+              <button class="btn-login font-facebook" (click)="loginFB()">
+                  <p class="text-center"><i class="fa fa-facebook-official pr-4" aria-hidden="true"></i>FACEBOOK</p>
+                </button>
+          </div>    
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="g-signin2" data-onsuccess="onSignIn">
+              <button class="btn-login font-google" id="googleBtn">
+                <p class="text-center"><i class="fa fa-google-plus-square pr-4" aria-hidden="true"></i>GOOGLE &nbsp;&nbsp;&nbsp;</p>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </div>
