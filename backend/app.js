@@ -15,18 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Habilitar CORS
-const whitelist = ['https://svc-migrante.herokuapp.com', 'https://apane-migrante-app.vercel.app', '*']
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error())
-    }
-  }
-}
 
-app.use(cors(corsOptions))
+app.use(cors());
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -38,9 +28,6 @@ app.use((req, res, next) => {
       "Access-Control-Allow-Methods",
       "GET, POST, PATCH, PUT, DELETE, OPTIONS"
     );
-    res.setHeader(
-      "Access-Control-Allow-Credentials", "true"
-    )
     next();
 });
 
