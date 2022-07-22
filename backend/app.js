@@ -15,10 +15,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Habilitar CORS
-app.use(cors({origin: '*'}));
+app.use(cors({origin: 'https://apane-migrante-app.vercel.app'}));
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://apane-migrante-app.vercel.app");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
