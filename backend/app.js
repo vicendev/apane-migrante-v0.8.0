@@ -24,7 +24,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://apane-migrante-app.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
@@ -33,6 +33,9 @@ app.use((req, res, next) => {
       "Access-Control-Allow-Methods",
       "GET, POST, PATCH, PUT, DELETE, OPTIONS"
     );
+    res.setHeader(
+      "Access-Control-Allow-Credentials", "true"
+    )
     next();
 });
 
