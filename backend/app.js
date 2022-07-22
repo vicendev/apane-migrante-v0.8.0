@@ -15,10 +15,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 // Habilitar CORS
+const whitelist = ['https://svc-migrante.herokuapp.com', 'https://apane-migrante-app.vercel.app', '*']
 const corsOptions = {
-  origin:'*', 
-  credentials:true,
-  optionSuccessStatus:200,
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error())
+    }
+  }
 }
 
 app.use(cors(corsOptions))
